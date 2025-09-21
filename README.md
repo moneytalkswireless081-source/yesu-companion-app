@@ -1,73 +1,252 @@
-# Welcome to your Lovable project
+# YesuApp - Christian Faith PWA
 
-## Project info
+A comprehensive Progressive Web Application built for Christian fellowship, daily spiritual growth, and community connection.
 
-**URL**: https://lovable.dev/projects/2cf022d1-6dd3-4cc1-8e1a-962f8999f12d
+## 🌟 Features
 
-## How can I edit this code?
+### Core Functionality
+- **Daily Scripture**: Device-seeded daily verses with commentary and guided prayer
+- **Bible Study Plans**: Interactive study plans with progress tracking
+- **Community**: Prayer requests, testimonies, Q&A, and discussions
+- **Events Calendar**: Church events with RSVP and reminders
+- **Notifications**: Daily scripture alerts and community updates
+- **Share Feature**: Web Share API with fallback copy-to-clipboard
+- **Offline Support**: Dexie.js for local data persistence
 
-There are several ways of editing your application.
+### Technical Stack
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS with custom design system
+- **State Management**: Zustand + React Query
+- **Database**: IndexedDB via Dexie.js
+- **Mobile**: Capacitor for Android/iOS wrapping
+- **PWA**: Service Worker with Workbox (planned)
 
-**Use Lovable**
+## 🚀 Getting Started
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2cf022d1-6dd3-4cc1-8e1a-962f8999f12d) and start prompting.
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-Changes made via Lovable will be committed automatically to this repo.
+### Installation
 
-**Use your preferred IDE**
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd yesuapp
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Build for production:
+```bash
+npm run build
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📱 Capacitor Mobile Development
 
-**Use GitHub Codespaces**
+### Initial Setup
+```bash
+# Initialize Capacitor (already done)
+npx cap init
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Add platforms
+npx cap add android
+npx cap add ios
+```
 
-## What technologies are used for this project?
+### Development Workflow
+1. Build the web app:
+```bash
+npm run build
+```
 
-This project is built with:
+2. Sync with native platforms:
+```bash
+npx cap sync
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+3. Run on device/emulator:
+```bash
+# Android
+npx cap run android
 
-## How can I deploy this project?
+# iOS (requires Xcode on macOS)
+npx cap run ios
+```
 
-Simply open [Lovable](https://lovable.dev/projects/2cf022d1-6dd3-4cc1-8e1a-962f8999f12d) and click on Share -> Publish.
+### Building APK/AAB
 
-## Can I connect a custom domain to my Lovable project?
+#### Prerequisites
+- Android Studio installed
+- Java Development Kit (JDK) 11+
+- Android SDK configured
 
-Yes, you can!
+#### Steps
+1. Open the Android project:
+```bash
+npx cap open android
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. In Android Studio:
+   - Build → Generate Signed Bundle/APK
+   - Choose "Android App Bundle" for Play Store
+   - Choose "APK" for direct installation
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+#### For Release Build
+1. Create a keystore file:
+```bash
+keytool -genkey -v -keystore yesuapp-release.keystore -alias yesuapp -keyalg RSA -keysize 2048 -validity 10000
+```
+
+2. Configure in `android/app/build.gradle`:
+```gradle
+android {
+    signingConfigs {
+        release {
+            keyAlias 'yesuapp'
+            keyPassword 'your-key-password'
+            storeFile file('../yesuapp-release.keystore')
+            storePassword 'your-store-password'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+```
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Development
+VITE_APP_ENV=development
+
+# Firebase Configuration (when implemented)
+VITE_FIREBASE_API_KEY=your-api-key
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=123456789
+VITE_FIREBASE_APP_ID=your-app-id
+
+# Bible API (example)
+VITE_BIBLE_API_KEY=your-bible-api-key
+
+# Stripe (for donations)
+VITE_STRIPE_PUBLISHABLE_KEY=pk_test_your-key
+```
+
+## 🧪 Quality Assurance Checklist
+
+### Functional Testing
+- [ ] Daily scripture loads and displays correctly
+- [ ] Navigation between tabs works smoothly
+- [ ] Share functionality works (Web Share API + fallback)
+- [ ] Bookmarks save and load properly
+- [ ] Notifications can be toggled on/off
+- [ ] Settings persist across app restarts
+- [ ] Offline mode caches content
+- [ ] Community posts display and interactions work
+- [ ] Event RSVP and reminders function
+- [ ] All buttons and links are functional
+
+### Mobile Testing
+- [ ] App installs correctly via Capacitor
+- [ ] Push notifications work on Android/iOS
+- [ ] Share functionality works on mobile
+- [ ] Touch interactions are responsive
+- [ ] App works in portrait and landscape
+- [ ] Offline functionality works without internet
+
+### Performance Testing
+- [ ] App loads within 3 seconds
+- [ ] Smooth scrolling and animations
+- [ ] Database operations are fast
+- [ ] Images load efficiently
+- [ ] No memory leaks during navigation
+
+### Cross-Browser Testing
+- [ ] Chrome (latest)
+- [ ] Firefox (latest)
+- [ ] Safari (latest)
+- [ ] Edge (latest)
+
+## 🛠️ Development Guidelines
+
+### Code Style
+- Use TypeScript for all components
+- Follow React functional component patterns
+- Use Tailwind's design system tokens
+- Implement proper error handling
+- Add loading states for async operations
+
+### State Management
+- Use Zustand for global app state
+- Use React Query for server state
+- Persist important data with Dexie.js
+- Handle offline/online state properly
+
+### Component Structure
+```
+src/
+├── components/
+│   ├── ui/           # Reusable UI components
+│   ├── daily/        # Daily scripture components
+│   ├── community/    # Community feature components
+│   └── ...
+├── pages/            # Main page components
+├── stores/           # Zustand stores
+├── lib/              # Utilities and database
+└── hooks/            # Custom React hooks
+```
+
+## 📋 Planned Features
+
+### Phase 2
+- [ ] Firebase backend integration
+- [ ] Real-time community features
+- [ ] Push notifications via FCM
+- [ ] User authentication
+- [ ] Marriage resources section
+- [ ] Counseling directory
+- [ ] Donation system integration
+
+### Phase 3
+- [ ] Advanced Bible search
+- [ ] Audio scripture playback
+- [ ] Prayer journal
+- [ ] Group Bible studies
+- [ ] Event live streaming
+- [ ] Multi-language support
+
+## 👨‍💻 Developer
+
+**Kisekka Henry**
+- Email: zoekisekka@gmail.com
+- Phone: +256 701 709 077
+
+## 📄 License
+
+This project is built for the glory of God and the advancement of His Kingdom.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and enhancement requests.
+
+---
+
+Built with ❤️ for the Kingdom of God
