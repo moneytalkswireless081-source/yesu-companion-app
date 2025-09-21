@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { 
   Bell,
   Moon,
+  Sun,
+  Palette,
   Type,
   Globe,
   Wifi,
@@ -14,9 +16,11 @@ import {
   MessageSquare,
   Mail,
   Phone,
-  Github,
   User,
-  Settings2
+  Settings2,
+  Bookmark,
+  Award,
+  Clock
 } from 'lucide-react';
 import { useAppStore } from '@/stores/useAppStore';
 import { useToast } from '@/hooks/use-toast';
@@ -42,6 +46,17 @@ export const SettingsPage = () => {
 
   const handleSettingChange = (key: keyof typeof settings, value: any) => {
     updateSettings({ [key]: value });
+    
+    // Apply font size immediately to document
+    if (key === 'fontSize') {
+      const fontSizeClasses = {
+        small: '14px',
+        medium: '16px', 
+        large: '18px'
+      };
+      document.documentElement.style.fontSize = fontSizeClasses[value as keyof typeof fontSizeClasses];
+    }
+    
     toast({
       title: "Settings Updated",
       description: `${key} changed successfully`
@@ -60,6 +75,21 @@ Best regards,
 ${user?.displayName || 'A YesuApp User'}`);
     
     window.open(`mailto:zoekisekka@gmail.com?subject=${subject}&body=${body}`, '_blank');
+  };
+
+  const themeOptions = [
+    { value: 'light', label: 'Light', icon: Sun },
+    { value: 'dark', label: 'Dark', icon: Moon },
+    { value: 'spiritual', label: 'Spiritual', icon: Heart },
+    { value: 'modern', label: 'Modern', icon: Palette },
+    { value: 'auto', label: 'Auto', icon: Settings2 }
+  ];
+
+  const gamificationStats = {
+    bookmarks: 12,
+    streakDays: 7,
+    completedPlans: 3,
+    badges: ['Early Bird', 'Scripture Student', 'Community Helper']
   };
 
   return (
@@ -144,6 +174,37 @@ ${user?.displayName || 'A YesuApp User'}`);
         </CardContent>
       </Card>
 
+      {/* Theme Selection */}
+      <Card className="shadow-card">
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Palette className="h-5 w-5 text-primary" />
+            Theme & Appearance
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <p className="font-medium text-foreground mb-3">Theme</p>
+            <div className="grid grid-cols-2 gap-2">
+              {themeOptions.map((theme) => {
+                const Icon = theme.icon;
+                return (
+                  <Button
+                    key={theme.value}
+                    variant={settings.theme === theme.value ? 'default' : 'outline'}
+                    onClick={() => handleSettingChange('theme', theme.value)}
+                    className="justify-start h-auto p-3"
+                  >
+                    <Icon className="h-4 w-4 mr-2" />
+                    <span>{theme.label}</span>
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* App Preferences */}
       <Card className="shadow-card">
         <CardHeader>
@@ -170,7 +231,7 @@ ${user?.displayName || 'A YesuApp User'}`);
                   onClick={() => handleSettingChange('fontSize', size)}
                   className="px-3"
                 >
-                  {size[0].toUpperCase()}
+                  {size === 'small' ? 'S' : size === 'medium' ? 'M' : 'L'}
                 </Button>
               ))}
             </div>
@@ -202,6 +263,51 @@ ${user?.displayName || 'A YesuApp User'}`);
               checked={settings.offlineMode}
               onCheckedChange={(checked) => handleSettingChange('offlineMode', checked)}
             />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Gamification */}
+      <Card className="shadow-card">
+        <CardHeader>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Award className="h-5 w-5 text-secondary" />
+            Your Progress
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="text-center p-3 bg-primary/5 rounded-lg">
+              <Bookmark className="h-6 w-6 text-primary mx-auto mb-1" />
+              <p className="text-lg font-bold text-foreground">{gamificationStats.bookmarks}</p>
+              <p className="text-xs text-muted-foreground">Bookmarks</p>
+            </div>
+            <div className="text-center p-3 bg-secondary/5 rounded-lg">
+              <Clock className="h-6 w-6 text-secondary mx-auto mb-1" />
+              <p className="text-lg font-bold text-foreground">{gamificationStats.streakDays}</p>
+              <p className="text-xs text-muted-foreground">Day Streak</p>
+            </div>
+          </div>
+          
+          <div>
+            <p className="font-medium text-foreground mb-2">Your Badges</p>
+            <div className="flex flex-wrap gap-2">
+              {gamificationStats.badges.map((badge, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  <Award className="h-3 w-3 mr-1" />
+                  {badge}
+                </Badge>
+              ))}
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground mb-2">
+              Completed {gamificationStats.completedPlans} study plans
+            </p>
+            <Button variant="outline" size="sm">
+              View All Achievements
+            </Button>
           </div>
         </CardContent>
       </Card>

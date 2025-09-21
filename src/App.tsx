@@ -8,7 +8,11 @@ import { useAppStore } from "@/stores/useAppStore";
 import { DailyPage } from "@/pages/DailyPage";
 import { StudyPage } from "@/pages/StudyPage";
 import { CommunityPage } from "@/pages/CommunityPage";
+import { MarriagePage } from "@/pages/MarriagePage";
+import { CounselingPage } from "@/pages/CounselingPage";
+import { DonationsPage } from "@/pages/DonationsPage";
 import { EventsPage } from "@/pages/EventsPage";
+import { AdminPage } from "@/pages/AdminPage";
 import { SettingsPage } from "@/pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
@@ -25,8 +29,16 @@ const MainApp = () => {
         return <StudyPage />;
       case 'community':
         return <CommunityPage />;
+      case 'marriage':
+        return <MarriagePage />;
+      case 'counseling':
+        return <CounselingPage />;
+      case 'donations':
+        return <DonationsPage />;
       case 'events':
         return <EventsPage />;
+      case 'admin':
+        return <AdminPage />;
       case 'settings':
         return <SettingsPage />;
       default:

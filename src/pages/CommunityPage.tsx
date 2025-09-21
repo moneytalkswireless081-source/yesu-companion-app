@@ -62,6 +62,11 @@ const trendingTopics = [
 ];
 
 export const CommunityPage = () => {
+  const [showPrayerForm, setShowPrayerForm] = useState(false);
+  const [showTestimonyForm, setShowTestimonyForm] = useState(false);
+  const [prayerRequest, setPrayerRequest] = useState('');
+  const [testimonyText, setTestimonyText] = useState('');
+  const [isAnonymous, setIsAnonymous] = useState(false);
   const [activeTab, setActiveTab] = useState("all");
   const { toast } = useToast();
 

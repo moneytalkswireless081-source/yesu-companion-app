@@ -17,7 +17,7 @@ interface NotificationSettings {
 }
 
 interface AppSettings {
-  theme: 'light' | 'dark' | 'auto';
+  theme: 'light' | 'dark' | 'auto' | 'spiritual' | 'modern';
   fontSize: 'small' | 'medium' | 'large';
   language: string;
   offlineMode: boolean;
@@ -53,7 +53,7 @@ export const useAppStore = create<AppState>()(
       isAuthenticated: false,
       
       settings: {
-        theme: 'light',
+        theme: 'spiritual',
         fontSize: 'medium',
         language: 'en',
         offlineMode: true,
