@@ -5,22 +5,7 @@ import { Button } from '@/components/ui/button';
 import { RefreshCw, Calendar } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { db, DailyScripture as DailyScriptureType } from '@/lib/database';
-
-// Sample scripture data - in production, this would come from an API
-const sampleScriptures = [
-  {
-    verse: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, to give you hope and a future.",
-    reference: "Jeremiah 29:11",
-    commentary: "God's plans for us are always good, even when we can't see the path ahead. This verse reminds us that He has our best interests at heart and is working all things together for our good.",
-    prayer: "Heavenly Father, help me to trust in Your perfect plans for my life. When uncertainty comes, remind me that You hold my future and that Your plans are always for my good. Give me peace in knowing that You are in control. Amen."
-  },
-  {
-    verse: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
-    reference: "Proverbs 3:5-6",
-    commentary: "This passage calls us to complete dependence on God rather than our limited human understanding. When we submit our ways to Him, He promises to direct our paths.",
-    prayer: "Lord, I surrender my understanding to You. Help me to trust You completely, especially when I don't understand what You're doing in my life. Guide my steps and make Your path clear before me. Amen."
-  }
-];
+import { getScriptureForDate } from '@/lib/scriptures';
 
 export const DailyPage = () => {
   const [todayScripture, setTodayScripture] = useState<DailyScriptureType | null>(null);
@@ -44,9 +29,8 @@ export const DailyPage = () => {
         .first();
 
       if (!scripture) {
-        // Generate new scripture for today
-        const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
-        const selectedScripture = sampleScriptures[dayOfYear % sampleScriptures.length];
+        // Get scripture for today's date
+        const selectedScripture = getScriptureForDate(new Date());
         
         scripture = {
           date: today,

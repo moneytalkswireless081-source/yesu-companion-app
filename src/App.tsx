@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BottomNav } from "@/components/ui/bottom-nav";
 import { useAppStore } from "@/stores/useAppStore";
+import { useTheme } from "@/hooks/useTheme";
 import { DailyPage } from "@/pages/DailyPage";
 import { StudyPage } from "@/pages/StudyPage";
 import { CommunityPage } from "@/pages/CommunityPage";
@@ -20,6 +21,9 @@ const queryClient = new QueryClient();
 
 const MainApp = () => {
   const { activeTab } = useAppStore();
+  
+  // Initialize theme system
+  useTheme();
 
   const renderPage = () => {
     switch (activeTab) {

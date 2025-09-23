@@ -1,64 +1,102 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { BookOpen, Search, Star, Clock, Users } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { BookOpen, Search, Star, Clock, Users, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-
-const studyPlans = [
-  {
-    id: 1,
-    title: "Walking with Jesus",
-    description: "A 30-day journey through the life and teachings of Christ",
-    duration: 30,
-    progress: 12,
-    category: "Discipleship",
-    difficulty: "Beginner",
-    participants: 1250
-  },
-  {
-    id: 2,
-    title: "Psalms of Hope",
-    description: "Finding comfort and strength in David's words",
-    duration: 14,
-    progress: 0,
-    category: "Comfort",
-    difficulty: "All Levels",
-    participants: 890
-  },
-  {
-    id: 3,
-    title: "Proverbs for Daily Living",
-    description: "Practical wisdom for everyday decisions",
-    duration: 21,
-    progress: 7,
-    category: "Wisdom",
-    difficulty: "Intermediate",
-    participants: 2100
-  }
-];
-
-const recentStudies = [
-  {
-    title: "The Good Shepherd",
-    verse: "John 10:11",
-    lastRead: "2 hours ago"
-  },
-  {
-    title: "Armor of God",
-    verse: "Ephesians 6:10-18",
-    lastRead: "Yesterday"
-  }
-];
+import { studyPlansDatabase, getUserProgress, getStudyPlanById, updateLessonProgress, StudyPlan, StudyLesson } from '@/lib/studyPlans';
 
 export const StudyPage = () => {
   const { toast } = useToast();
+  const [studyPlans, setStudyPlans] = useState<(StudyPlan & { progress: number })[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<StudyPlan | null>(null);
+  const [selectedLesson, setSelectedLesson] = useState<StudyLesson | null>(null);
+  const [isLessonOpen, setIsLessonOpen] = useState(false);
 
-  const handleStartPlan = (planTitle: string) => {
+  const recentStudies = [
+    {
+      title: "The Good Shepherd",
+      verse: "John 10:11",
+      lastRead: "2 hours ago"
+    },
+    {
+      title: "Armor of God",
+      verse: "Ephesians 6:10-18",
+      lastRead: "Yesterday"
+    }
+  ];
+
+  useEffect(() => {
+    const loadStudyPlans = async () => {
+      const plansWithProgress = await Promise.all(
+        studyPlansDatabase.map(async (plan) => ({
+          ...plan,
+          progress: await getUserProgress(plan.id)
+        }))
+      );
+      setStudyPlans(plansWithProgress);
+    };
+
+    loadStudyPlans();
+  }, []);
+
+  const handleStartPlan = (plan: StudyPlan & { progress: number }) => {
+    if (plan.progress > 0) {
+      // Continue existing plan
+      setSelectedPlan(plan);
+      const nextLesson = plan.lessons.find(lesson => lesson.day > plan.progress);
+      if (nextLesson) {
+        setSelectedLesson(nextLesson);
+        setIsLessonOpen(true);
+      }
+    } else {
+      // Start new plan
+      setSelectedPlan(plan);
+      setSelectedLesson(plan.lessons[0]);
+      setIsLessonOpen(true);
+    }
+    
     toast({
-      title: "Study Plan Started",
-      description: `"${planTitle}" has been added to your studies!`
+      title: plan.progress > 0 ? "Continuing Study" : "Study Plan Started",
+      description: `"${plan.title}" is now open!`
+    });
+  };
+
+  const handleCompleteLesson = async (lesson: StudyLesson) => {
+    if (!selectedPlan) return;
+    
+    await updateLessonProgress(selectedPlan.id, lesson.id, true);
+    
+    // Update local state
+    setStudyPlans(prev => prev.map(plan => 
+      plan.id === selectedPlan.id 
+        ? { ...plan, progress: Math.max(plan.progress, lesson.day) }
+        : plan
+    ));
+    
+    setIsLessonOpen(false);
+    
+    toast({
+      title: "Lesson Completed!",
+      description: `Great job completing "${lesson.title}"`
+    });
+  };
+
+  const handleRandomVerse = () => {
+    const verses = [
+      { reference: "Psalm 46:10", text: "Be still, and know that I am God." },
+      { reference: "Philippians 4:13", text: "I can do all this through him who gives me strength." },
+      { reference: "Romans 8:28", text: "And we know that in all things God works for the good of those who love him." }
+    ];
+    
+    const randomVerse = verses[Math.floor(Math.random() * verses.length)];
+    
+    toast({
+      title: randomVerse.reference,
+      description: randomVerse.text,
+      duration: 5000
     });
   };
 
@@ -172,7 +210,7 @@ export const StudyPage = () => {
                 <Button 
                   className="w-full" 
                   variant={plan.progress > 0 ? "default" : "outline"}
-                  onClick={() => handleStartPlan(plan.title)}
+                  onClick={() => handleStartPlan(plan)}
                 >
                   {plan.progress > 0 ? "Continue Study" : "Start Plan"}
                 </Button>
@@ -188,16 +226,81 @@ export const StudyPage = () => {
           <CardTitle className="text-lg">Quick Study</CardTitle>
         </CardHeader>
         <CardContent className="grid grid-cols-2 gap-3">
-          <Button variant="outline" className="h-auto p-4 flex flex-col gap-2">
+          <Button 
+            variant="outline" 
+            className="h-auto p-4 flex flex-col gap-2"
+            onClick={handleRandomVerse}
+          >
             <BookOpen className="h-6 w-6 text-primary" />
             <span className="text-sm font-medium">Random Verse</span>
           </Button>
-          <Button variant="outline" className="h-auto p-4 flex flex-col gap-2">
+          <Button 
+            variant="outline" 
+            className="h-auto p-4 flex flex-col gap-2"
+            onClick={() => toast({ title: "Verse Search", description: "Search feature coming soon!" })}
+          >
             <Search className="h-6 w-6 text-primary" />
             <span className="text-sm font-medium">Verse Search</span>
           </Button>
         </CardContent>
       </Card>
+
+      {/* Study Lesson Dialog */}
+      <Dialog open={isLessonOpen} onOpenChange={setIsLessonOpen}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          {selectedLesson && selectedPlan && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl">
+                  Day {selectedLesson.day}: {selectedLesson.title}
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-6">
+                {/* Scripture Reference */}
+                <div className="bg-primary/5 p-4 rounded-lg border border-primary/20">
+                  <h3 className="font-semibold text-primary mb-2">Today's Scripture</h3>
+                  <p className="font-medium">{selectedLesson.scripture}</p>
+                </div>
+
+                {/* Content */}
+                <div>
+                  <h3 className="font-semibold mb-2">Study Content</h3>
+                  <p className="text-muted-foreground leading-relaxed">{selectedLesson.content}</p>
+                </div>
+
+                {/* Reflection Questions */}
+                <div>
+                  <h3 className="font-semibold mb-2">Reflection Questions</h3>
+                  <ul className="space-y-2">
+                    {selectedLesson.questions.map((question, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="text-primary font-medium">{index + 1}.</span>
+                        <span className="text-muted-foreground">{question}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Prayer */}
+                <div className="bg-secondary/5 p-4 rounded-lg border border-secondary/20">
+                  <h3 className="font-semibold text-secondary mb-2">Prayer</h3>
+                  <p className="italic text-muted-foreground">{selectedLesson.prayer}</p>
+                </div>
+
+                {/* Complete Button */}
+                <Button 
+                  className="w-full" 
+                  onClick={() => handleCompleteLesson(selectedLesson)}
+                >
+                  <CheckCircle className="h-4 w-4 mr-2" />
+                  Complete Lesson
+                </Button>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
