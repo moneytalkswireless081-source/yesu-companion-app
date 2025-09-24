@@ -6,6 +6,7 @@ import { RefreshCw, Calendar } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { db, DailyScripture as DailyScriptureType } from '@/lib/database';
 import { getScriptureForDate } from '@/lib/scriptures';
+import { toZonedTime, format } from 'date-fns-tz';
 
 export const DailyPage = () => {
   const [todayScripture, setTodayScripture] = useState<DailyScriptureType | null>(null);
@@ -21,7 +22,6 @@ export const DailyPage = () => {
     setIsLoading(true);
     try {
       // Get today's date in Ugandan time (EAT)
-      const { toZonedTime, format } = await import('date-fns-tz');
       const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
       const today = format(ugandanTime, 'yyyy-MM-dd', { timeZone: 'Africa/Kampala' });
       
@@ -88,7 +88,6 @@ export const DailyPage = () => {
 
     try {
       // Use Ugandan time for consistency
-      const { toZonedTime, format } = await import('date-fns-tz');
       const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
       const today = format(ugandanTime, 'yyyy-MM-dd', { timeZone: 'Africa/Kampala' });
       const bookmarkId = `scripture-${today}`;
@@ -147,17 +146,14 @@ export const DailyPage = () => {
           <h1 className="text-2xl font-bold text-foreground">Daily Scripture</h1>
           <p className="text-muted-foreground flex items-center gap-1 mt-1">
             <Calendar className="h-4 w-4" />
-            {(() => {
-              const { toZonedTime } = require('date-fns-tz');
-              const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
-              return ugandanTime.toLocaleDateString('en-US', { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                timeZone: 'Africa/Kampala'
-              });
-            })()}</p>
+            {toZonedTime(new Date(), 'Africa/Kampala').toLocaleDateString('en-US', { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              timeZone: 'Africa/Kampala'
+            })}
+          </p>
         </div>
         <Button 
           variant="outline" 
