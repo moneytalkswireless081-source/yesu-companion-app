@@ -20,7 +20,10 @@ export const DailyPage = () => {
   const loadTodayScripture = async () => {
     setIsLoading(true);
     try {
-      const today = new Date().toISOString().split('T')[0];
+      // Get today's date in Ugandan time (EAT)
+      const { toZonedTime, format } = await import('date-fns-tz');
+      const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
+      const today = format(ugandanTime, 'yyyy-MM-dd', { timeZone: 'Africa/Kampala' });
       
       // Try to get from local database first
       let scripture = await db.dailyScriptures
@@ -29,8 +32,8 @@ export const DailyPage = () => {
         .first();
 
       if (!scripture) {
-        // Get scripture for today's date
-        const selectedScripture = getScriptureForDate(new Date());
+        // Get scripture for today's date in Ugandan time
+        const selectedScripture = getScriptureForDate(ugandanTime);
         
         scripture = {
           date: today,
@@ -84,7 +87,10 @@ export const DailyPage = () => {
     if (!todayScripture) return;
 
     try {
-      const today = new Date().toISOString().split('T')[0];
+      // Use Ugandan time for consistency
+      const { toZonedTime, format } = await import('date-fns-tz');
+      const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
+      const today = format(ugandanTime, 'yyyy-MM-dd', { timeZone: 'Africa/Kampala' });
       const bookmarkId = `scripture-${today}`;
 
       if (isBookmarked) {
@@ -141,13 +147,17 @@ export const DailyPage = () => {
           <h1 className="text-2xl font-bold text-foreground">Daily Scripture</h1>
           <p className="text-muted-foreground flex items-center gap-1 mt-1">
             <Calendar className="h-4 w-4" />
-            {new Date().toLocaleDateString('en-US', { 
-              weekday: 'long', 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
-            })}
-          </p>
+            {(() => {
+              const { toZonedTime } = require('date-fns-tz');
+              const ugandanTime = toZonedTime(new Date(), 'Africa/Kampala');
+              return ugandanTime.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                timeZone: 'Africa/Kampala'
+              });
+            })()}</p>
         </div>
         <Button 
           variant="outline" 

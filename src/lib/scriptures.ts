@@ -92,11 +92,16 @@ export const scriptureDatabase = [
   }
 ];
 
-export const getScriptureForDate = (date: Date) => {
-  // Create a consistent seed based on the date
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getDate();
+import { toZonedTime } from 'date-fns-tz';
+
+export const getScriptureForDate = (date?: Date) => {
+  // Use current time in Uganda (EAT - UTC+3) if no date provided
+  const ugandanTime = toZonedTime(date || new Date(), 'Africa/Kampala');
+  
+  // Create a consistent seed based on the Ugandan date
+  const year = ugandanTime.getFullYear();
+  const month = ugandanTime.getMonth();
+  const day = ugandanTime.getDate();
   
   // Simple hash function to get consistent index for the date
   const seed = year * 10000 + month * 100 + day;
