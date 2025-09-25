@@ -16,6 +16,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 
 const communityPosts = [
+  // Prayer Requests (156 total, showing representative sample)
   {
     id: 1,
     type: 'prayer',
@@ -30,6 +31,56 @@ const communityPosts = [
   },
   {
     id: 2,
+    type: 'prayer',
+    title: "Job search prayers",
+    content: "I've been unemployed for 3 months. Please pray that God opens doors for employment...",
+    author: "Anonymous",
+    isAnonymous: true,
+    timeAgo: "3 hours ago",
+    likes: 18,
+    replies: 8,
+    tags: ["employment", "provision"]
+  },
+  {
+    id: 3,
+    type: 'prayer',
+    title: "Marriage restoration",
+    content: "My spouse and I are going through a difficult time. Please pray for our marriage...",
+    author: "Grace K.",
+    isAnonymous: false,
+    timeAgo: "5 hours ago",
+    likes: 24,
+    replies: 12,
+    tags: ["marriage", "restoration"]
+  },
+  {
+    id: 4,
+    type: 'prayer',
+    title: "Financial breakthrough",
+    content: "Struggling with debt and bills. Praying for God's provision and wisdom...",
+    author: "Joseph M.",
+    isAnonymous: false,
+    timeAgo: "6 hours ago",
+    likes: 16,
+    replies: 7,
+    tags: ["finances", "provision"]
+  },
+  {
+    id: 5,
+    type: 'prayer',
+    title: "Healing from depression",
+    content: "Going through a dark season. Please pray for mental health and God's peace...",
+    author: "Anonymous",
+    isAnonymous: true,
+    timeAgo: "8 hours ago",
+    likes: 31,
+    replies: 15,
+    tags: ["healing", "mental-health"]
+  },
+  
+  // Testimonies (87 total, showing representative sample)
+  {
+    id: 6,
     type: 'testimony',
     title: "God provided in unexpected ways",
     content: "I wanted to share how God provided for my family during a difficult financial time...",
@@ -41,7 +92,57 @@ const communityPosts = [
     tags: ["provision", "testimony"]
   },
   {
-    id: 3,
+    id: 7,
+    type: 'testimony',
+    title: "Miraculous healing testimony",
+    content: "After months of prayer, the doctors say my condition has completely improved...",
+    author: "Mary W.",
+    isAnonymous: false,
+    timeAgo: "1 day ago",
+    likes: 45,
+    replies: 20,
+    tags: ["healing", "miracle"]
+  },
+  {
+    id: 8,
+    type: 'testimony',
+    title: "God restored my marriage",
+    content: "After separation, God worked in both our hearts and brought us back together...",
+    author: "Peter L.",
+    isAnonymous: false,
+    timeAgo: "2 days ago",
+    likes: 52,
+    replies: 18,
+    tags: ["marriage", "restoration"]
+  },
+  {
+    id: 9,
+    type: 'testimony',
+    title: "Found purpose in serving",
+    content: "Through volunteering at church, I discovered my calling and found peace...",
+    author: "Rebecca S.",
+    isAnonymous: false,
+    timeAgo: "3 days ago",
+    likes: 22,
+    replies: 9,
+    tags: ["purpose", "service"]
+  },
+  {
+    id: 10,
+    type: 'testimony',
+    title: "Deliverance from addiction",
+    content: "By God's grace and community support, I'm now 6 months clean...",
+    author: "Anonymous",
+    isAnonymous: true,
+    timeAgo: "4 days ago",
+    likes: 38,
+    replies: 14,
+    tags: ["deliverance", "addiction"]
+  },
+  
+  // Questions & Answers (45 total, showing representative sample)
+  {
+    id: 11,
     type: 'question',
     title: "Understanding forgiveness",
     content: "I'm struggling with forgiving someone who hurt me deeply. How do we truly forgive?",
@@ -51,13 +152,61 @@ const communityPosts = [
     likes: 15,
     replies: 12,
     tags: ["forgiveness", "relationships"]
+  },
+  {
+    id: 12,
+    type: 'question',
+    title: "What does it mean to have faith?",
+    content: "I'm new to Christianity and trying to understand what faith really means...",
+    author: "Hannah T.",
+    isAnonymous: false,
+    timeAgo: "12 hours ago",
+    likes: 20,
+    replies: 16,
+    tags: ["faith", "basics"]
+  },
+  {
+    id: 13,
+    type: 'question',
+    title: "How to pray effectively?",
+    content: "Sometimes I feel like my prayers aren't being heard. What am I doing wrong?",
+    author: "Anonymous",
+    isAnonymous: true,
+    timeAgo: "1 day ago",
+    likes: 25,
+    replies: 22,
+    tags: ["prayer", "guidance"]
+  },
+  {
+    id: 14,
+    type: 'question',
+    title: "Dealing with doubt",
+    content: "Going through a season of doubt about my faith. Is this normal?",
+    author: "Michael R.",
+    isAnonymous: false,
+    timeAgo: "2 days ago",
+    likes: 18,
+    replies: 14,
+    tags: ["doubt", "faith"]
+  },
+  {
+    id: 15,
+    type: 'question',
+    title: "Understanding God's will",
+    content: "How do I know what God's will is for my life and major decisions?",
+    author: "Esther N.",
+    isAnonymous: false,
+    timeAgo: "3 days ago",
+    likes: 32,
+    replies: 19,
+    tags: ["guidance", "will-of-god"]
   }
 ];
 
 const trendingTopics = [
   { name: "Prayer Requests", count: 156, color: "bg-red-100 text-red-800" },
   { name: "Healing", count: 89, color: "bg-green-100 text-green-800" },
-  { name: "Testimonies", count: 67, color: "bg-blue-100 text-blue-800" },
+  { name: "Testimonies", count: 87, color: "bg-blue-100 text-blue-800" },
   { name: "Faith Questions", count: 45, color: "bg-purple-100 text-purple-800" }
 ];
 

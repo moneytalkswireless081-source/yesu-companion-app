@@ -143,12 +143,23 @@ export const StudyPage = () => {
                   <p className="font-medium text-foreground">{study.title}</p>
                   <p className="text-sm text-muted-foreground">{study.verse}</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs text-muted-foreground">{study.lastRead}</p>
-                  <Button size="sm" variant="outline" className="mt-1">
-                    Continue
-                  </Button>
-                </div>
+              <div className="text-right">
+                <p className="text-xs text-muted-foreground">{study.lastRead}</p>
+                <Button 
+                  size="sm" 
+                  variant="outline" 
+                  className="mt-1"
+                  onClick={() => {
+                    toast({
+                      title: `Continuing "${study.title}"`,
+                      description: "Opening your last reading position"
+                    });
+                    // In a real app, this would navigate to the specific lesson
+                  }}
+                >
+                  Continue
+                </Button>
+              </div>
               </div>
             ))}
           </CardContent>

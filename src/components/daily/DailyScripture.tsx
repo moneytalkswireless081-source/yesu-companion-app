@@ -26,26 +26,138 @@ export const DailyScripture: React.FC<DailyScriptureProps> = ({
   const { toast } = useToast();
 
   const handleShare = async () => {
+    const shareText = `"${verse}" - ${reference}\n\nFrom YesuApp`;
+    const shareUrl = window.location.href;
+    
     if (navigator.share) {
       try {
         await navigator.share({
           title: `Daily Scripture - ${reference}`,
-          text: `"${verse}" - ${reference}\n\nFrom YesuApp`,
-          url: window.location.href
+          text: shareText,
+          url: shareUrl
         });
       } catch (error) {
         console.log('Error sharing:', error);
+        // Fallback to share options
+        showShareOptions();
       }
     } else {
-      // Fallback to clipboard
-      const shareText = `"${verse}" - ${reference}\n\nFrom YesuApp`;
-      await navigator.clipboard.writeText(shareText);
-      toast({
-        title: "Copied to clipboard",
-        description: "Scripture verse copied successfully!"
-      });
+      showShareOptions();
     }
     onShare?.();
+  };
+
+  const showShareOptions = () => {
+    const shareText = encodeURIComponent(`"${verse}" - ${reference}\n\nFrom YesuApp`);
+    const shareUrl = encodeURIComponent(window.location.href);
+    
+    const shareOptions = [
+      {
+        name: "X (Twitter)",
+        url: `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,
+        action: () => window.open(`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`, '_blank')
+      },
+      {
+        name: "Facebook",
+        url: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`,
+        action: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`, '_blank')
+      },
+      {
+        name: "WhatsApp",
+        url: `https://wa.me/?text=${shareText}%20${shareUrl}`,
+        action: () => window.open(`https://wa.me/?text=${shareText}%20${shareUrl}`, '_blank')
+      },
+      {
+        name: "Copy to Clipboard",
+        action: async () => {
+          try {
+            await navigator.clipboard.writeText(`"${verse}" - ${reference}\n\nFrom YesuApp`);
+            toast({
+              title: "Copied to clipboard",
+              description: "Scripture verse copied successfully!"
+            });
+          } catch (error) {
+            console.error('Failed to copy:', error);
+          }
+        }
+      }
+    ];
+
+    // Create a simple share dialog
+    const shareDialog = document.createElement('div');
+    shareDialog.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `;
+    
+    const shareMenu = document.createElement('div');
+    shareMenu.style.cssText = `
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 300px;
+      width: 90%;
+    `;
+    
+    shareMenu.innerHTML = `
+      <h3 style="margin: 0 0 15px 0; color: #333;">Share Scripture</h3>
+      ${shareOptions.map(option => `
+        <button style="
+          display: block;
+          width: 100%;
+          padding: 10px;
+          margin: 5px 0;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          background: white;
+          cursor: pointer;
+          text-align: left;
+        " data-option="${option.name}">${option.name}</button>
+      `).join('')}
+      <button style="
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 0 0;
+        border: none;
+        border-radius: 4px;
+        background: #f0f0f0;
+        cursor: pointer;
+      " data-option="cancel">Cancel</button>
+    `;
+    
+    shareDialog.appendChild(shareMenu);
+    document.body.appendChild(shareDialog);
+    
+    shareMenu.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const optionName = target.getAttribute('data-option');
+      
+      if (optionName === 'cancel') {
+        document.body.removeChild(shareDialog);
+        return;
+      }
+      
+      const option = shareOptions.find(o => o.name === optionName);
+      if (option) {
+        option.action();
+        document.body.removeChild(shareDialog);
+      }
+    });
+    
+    shareDialog.addEventListener('click', (e) => {
+      if (e.target === shareDialog) {
+        document.body.removeChild(shareDialog);
+      }
+    });
   };
 
   const handleBookmark = () => {

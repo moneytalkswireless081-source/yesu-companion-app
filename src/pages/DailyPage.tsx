@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import { db, DailyScripture as DailyScriptureType } from '@/lib/database';
 import { getScriptureForDate } from '@/lib/scriptures';
 import { toZonedTime, format } from 'date-fns-tz';
+import { useAppStore } from '@/stores/useAppStore';
 
 export const DailyPage = () => {
   const [todayScripture, setTodayScripture] = useState<DailyScriptureType | null>(null);
@@ -191,8 +192,9 @@ export const DailyPage = () => {
             variant="outline" 
             className="w-full justify-start"
             onClick={() => {
-              // Navigate to Bible study
-              toast({ title: "Bible Study", description: "Feature coming soon!" });
+              // Navigate to Study page using store
+              const { setActiveTab } = useAppStore.getState();
+              setActiveTab('study');
             }}
           >
             <Calendar className="h-4 w-4 mr-2" />
@@ -202,8 +204,9 @@ export const DailyPage = () => {
             variant="outline" 
             className="w-full justify-start"
             onClick={() => {
-              // Navigate to community
-              toast({ title: "Community", description: "Feature coming soon!" });
+              // Navigate to Community page using store
+              const { setActiveTab } = useAppStore.getState();
+              setActiveTab('community');
             }}
           >
             <RefreshCw className="h-4 w-4 mr-2" />

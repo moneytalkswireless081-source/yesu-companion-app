@@ -107,9 +107,9 @@ export const AdminPage = () => {
   ];
 
   const analytics = {
-    totalUsers: 1247,
-    activeUsers: 892,
-    totalPosts: 3456,
+    totalUsers: 10539,
+    activeUsers: 6003,
+    totalPosts: 7501,
     pendingModeration: 15,
     reportsToday: 3
   };
