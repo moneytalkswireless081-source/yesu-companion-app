@@ -78,11 +78,11 @@ ${user?.displayName || 'A YesuApp User'}`);
   };
 
   const themeOptions = [
-    { value: 'light', label: 'Light', icon: Sun },
-    { value: 'dark', label: 'Dark', icon: Moon },
-    { value: 'spiritual', label: 'Spiritual', icon: Heart },
-    { value: 'modern', label: 'Modern', icon: Palette },
-    { value: 'auto', label: 'Auto', icon: Settings2 }
+    { value: 'ocean', label: 'Ocean', icon: '🌊' },
+    { value: 'forest', label: 'Forest', icon: '🌲' },
+    { value: 'sunset', label: 'Sunset', icon: '🌅' },
+    { value: 'royal', label: 'Royal', icon: '👑' },
+    { value: 'minimal', label: 'Minimal', icon: '⚪' }
   ];
 
   const gamificationStats = {
@@ -182,12 +182,35 @@ ${user?.displayName || 'A YesuApp User'}`);
             Theme & Appearance
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-6">
+          {/* Dark/Light Toggle */}
           <div>
-            <p className="font-medium text-foreground mb-3">Theme</p>
+            <p className="font-medium text-foreground mb-3">Mode</p>
+            <div className="flex gap-2">
+              <Button
+                variant={settings.theme === 'light' ? 'default' : 'outline'}
+                onClick={() => handleSettingChange('theme', 'light')}
+                className="flex-1 justify-center h-12"
+              >
+                <Sun className="h-4 w-4 mr-2" />
+                Light
+              </Button>
+              <Button
+                variant={settings.theme === 'dark' ? 'default' : 'outline'}
+                onClick={() => handleSettingChange('theme', 'dark')}
+                className="flex-1 justify-center h-12"
+              >
+                <Moon className="h-4 w-4 mr-2" />
+                Dark
+              </Button>
+            </div>
+          </div>
+
+          {/* Theme Selection */}
+          <div>
+            <p className="font-medium text-foreground mb-3">Theme Style</p>
             <div className="grid grid-cols-2 gap-2">
               {themeOptions.map((theme) => {
-                const Icon = theme.icon;
                 return (
                   <Button
                     key={theme.value}
@@ -195,7 +218,7 @@ ${user?.displayName || 'A YesuApp User'}`);
                     onClick={() => handleSettingChange('theme', theme.value)}
                     className="justify-start h-auto p-3"
                   >
-                    <Icon className="h-4 w-4 mr-2" />
+                    <span className="text-lg mr-2">{theme.icon}</span>
                     <span>{theme.label}</span>
                   </Button>
                 );
