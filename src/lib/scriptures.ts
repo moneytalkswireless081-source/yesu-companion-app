@@ -69,6 +69,48 @@ export const scriptureDatabase = [
       "Matthew 11:28 - Come to me, all you who are weary and burdened, and I will give you rest.",
       "2 Corinthians 12:9 - But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.'"
     ]
+  },
+  {
+    verse: "Be strong and courageous. Do not be afraid or terrified because of them, for the Lord your God goes with you; he will never leave you nor forsake you.",
+    reference: "Deuteronomy 31:6",
+    commentary: "These words were spoken by Moses to Joshua as leadership was being transferred to lead Israel into the Promised Land. The command to 'be strong and courageous' appears multiple times in Scripture, revealing its importance in God's heart. Strength and courage aren't merely human virtues to muster up—they're divine commands backed by divine presence. The Hebrew word for 'strong' (chazaq) means to be firm, resolute, and steadfast, while 'courageous' (amets) implies bold confidence and determination. Fear is often rooted in the illusion that we face our battles alone. God's antidote isn't positive thinking or self-help strategies, but the guaranteed reality of His presence. The phrase 'goes with you' uses the Hebrew word 'halak,' suggesting God walks alongside us step by step, not watching from a distance. His promise never to 'leave' (raphah) or 'forsake' (azab) us is a double assurance—He won't release His grip on us or abandon us in our time of need. This isn't conditional based on our performance but grounded in His character and covenant faithfulness.",
+    prayer: "Lord God Almighty, I confess that I often feel weak and fearful when facing the giants in my life. Help me to remember that Your command to be strong and courageous isn't based on my abilities but on Your presence with me. When challenges seem insurmountable and I feel like retreating, remind me that You are walking beside me every step of the way. Strengthen my faith to believe that no weapon formed against me shall prosper because You are my defender. Help me to distinguish between wise caution and paralyzing fear. Give me supernatural courage to step into the purposes You have for my life, knowing that You have never abandoned those who trust in You. When the enemy whispers lies about my inadequacy, let Your truth about my identity in You speak louder. I choose to move forward in confidence, not because I am strong, but because You are strong in me. Thank You for Your faithful presence that goes before me, beside me, and behind me. Amen.",
+    relatedScriptures: [
+      "Joshua 1:9 - Have I not commanded you? Be strong and courageous! Do not be afraid; do not be discouraged.",
+      "Isaiah 41:10 - So do not fear, for I am with you; do not be dismayed, for I am your God.",
+      "Psalm 27:1 - The Lord is my light and my salvation—whom shall I fear? The Lord is the stronghold of my life.",
+      "2 Timothy 1:7 - For God has not given us a spirit of fear, but of power, love and sound mind.",
+      "Psalm 23:4 - Even though I walk through the darkest valley, I will fear no evil, for you are with me.",
+      "Hebrews 13:5 - Never will I leave you; never will I forsake you."
+    ]
+  },
+  {
+    verse: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul.",
+    reference: "Psalm 23:1-3",
+    commentary: "David, both a shepherd and a king, understood intimately the relationship between shepherd and sheep. This psalm isn't mere poetry but a profound theological statement about God's character and our identity. The declaration 'The Lord is my shepherd' establishes ownership, protection, and provision. Sheep cannot survive without a shepherd—they're defenseless, prone to wander, and unable to find adequate food and water on their own. When David says 'I lack nothing,' he's not claiming material abundance but complete satisfaction in God's provision. The Hebrew word 'chacer' (lack) suggests want or need; in God's care, we have everything necessary for life and godliness. 'Green pastures' represent not just sustenance but abundance—God doesn't provide the bare minimum but leads us to places of flourishing. 'Quiet waters' (literally 'waters of rest') show God's gentleness—sheep won't drink from turbulent streams, so the shepherd finds calm, safe places. 'Refreshes my soul' uses the Hebrew 'shub,' meaning to restore, return, or bring back—God doesn't just meet our physical needs but renews our innermost being.",
+    prayer: "Good Shepherd, thank You for claiming me as Your own and taking responsibility for every aspect of my life. I confess that I sometimes act like I can take care of myself, wandering from Your guidance and trying to find satisfaction in things that cannot truly nourish my soul. Help me to trust Your provision even when I can't see how my needs will be met. When I'm anxious about the future, remind me that You have never failed to care for Your sheep. Lead me to the green pastures of Your Word and the quiet waters of Your presence when my soul is dry and weary. I acknowledge that apart from You, I am vulnerable and lost, but in Your care, I have everything I need. Refresh my spirit when I'm discouraged, restore my joy when circumstances try to steal it, and renew my strength when I'm weary. Help me to follow closely behind You, trusting Your voice above all others. Thank You for being not just a distant God but my personal, caring, attentive Shepherd who knows me by name and loves me unconditionally. Amen.",
+    relatedScriptures: [
+      "John 10:11 - I am the good shepherd. The good shepherd lays down his life for the sheep.",
+      "Ezekiel 34:15 - I myself will tend my sheep and have them lie down, declares the Sovereign Lord.",
+      "Isaiah 40:11 - He tends his flock like a shepherd: He gathers the lambs in his arms and carries them close to his heart.",
+      "1 Peter 5:4 - And when the Chief Shepherd appears, you will receive the crown of glory that will never fade away.",
+      "Psalm 100:3 - Know that the Lord is God. It is he who made us, and we are his; we are his people, the sheep of his pasture.",
+      "John 10:27 - My sheep listen to my voice; I know them, and they follow me."
+    ]
+  },
+  {
+    verse: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.",
+    reference: "Isaiah 40:31",
+    commentary: "This verse comes at the end of a passage describing God's incomparable power and wisdom. Isaiah contrasts human frailty with divine strength, showing that even the strongest people eventually grow tired, but those who 'hope' in the Lord find supernatural renewal. The Hebrew word 'qavah' (hope) means more than wishful thinking—it implies confident expectation, active waiting, and patient trust. This hope isn't passive but involves aligning our lives with God's character and timing. The promise of renewed strength uses the word 'chalaph,' which means to change, alter, or exchange—God literally exchanges our weakness for His strength. The imagery progresses from soaring like eagles (supernatural elevation above circumstances), to running without weariness (sustained energy for life's race), to walking without fainting (endurance for daily routines). Eagles use thermal updrafts to soar effortlessly; similarly, we can rise above life's storms by trusting in God's power rather than our own efforts. This isn't a one-time transaction but a continual process of surrendering our limitations and receiving His limitless resources.",
+    prayer: "Heavenly Father, I come to You acknowledging my own limitations and weaknesses. I confess that I often try to live life in my own strength, only to find myself exhausted, overwhelmed, and discouraged. Teach me what it means to truly hope in You—not just to believe You exist, but to actively trust in Your power, timing, and goodness. When I feel like I'm running on empty, help me to wait on You and allow You to renew my strength from the inside out. I want to experience the supernatural grace that lifts me above my circumstances like an eagle soaring on the wind. Give me endurance for the long race of life and sustained energy for daily responsibilities. When others around me are fainting under pressure, let me be a testimony of Your strength working in and through me. Exchange my anxiety for Your peace, my fear for Your courage, my despair for Your hope. Help me to remember that my strength doesn't depend on my circumstances, my age, or my natural abilities, but on my connection to You, the source of all power. Thank You for Your promise to renew me continually as I put my hope in You. Amen.",
+    relatedScriptures: [
+      "2 Corinthians 4:16 - Therefore we do not lose heart. Though outwardly we are wasting away, yet inwardly we are being renewed day by day.",
+      "Philippians 4:13 - I can do all this through him who gives me strength.",
+      "Psalm 103:5 - Who satisfies your desires with good things so that your youth is renewed like the eagle's.",
+      "Habakkuk 3:19 - The Sovereign Lord is my strength; he makes my feet like the feet of a deer, he enables me to tread on the heights.",
+      "Ephesians 3:16 - I pray that out of his glorious riches he may strengthen you with power through his Spirit in your inner being.",
+      "Colossians 1:11 - Being strengthened with all power according to his glorious might so that you may have great endurance and patience."
+    ]
   }
 ];
 
