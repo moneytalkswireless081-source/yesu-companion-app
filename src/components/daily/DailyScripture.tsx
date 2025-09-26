@@ -9,6 +9,7 @@ interface DailyScriptureProps {
   reference: string;
   commentary?: string;
   prayer?: string;
+  relatedScriptures?: string[];
   isBookmarked?: boolean;
   onShare?: () => void;
   onBookmark?: () => void;
@@ -19,6 +20,7 @@ export const DailyScripture: React.FC<DailyScriptureProps> = ({
   reference,
   commentary,
   prayer,
+  relatedScriptures,
   isBookmarked = false,
   onShare,
   onBookmark
@@ -238,6 +240,35 @@ export const DailyScripture: React.FC<DailyScriptureProps> = ({
             <p className="text-muted-foreground leading-relaxed italic">
               {prayer}
             </p>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Related Scriptures for Further Study */}
+      {relatedScriptures && relatedScriptures.length > 0 && (
+        <Card className="shadow-card border-primary/20 bg-primary/5">
+          <CardHeader className="pb-3">
+            <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
+              <Heart className="h-5 w-5 text-primary" />
+              Further Study
+            </h3>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground mb-3">
+                Explore these related scriptures to deepen your understanding:
+              </p>
+              {relatedScriptures.map((scripture, index) => (
+                <div
+                  key={index}
+                  className="p-3 rounded-lg bg-background border border-primary/10 hover:border-primary/30 transition-colors"
+                >
+                  <p className="text-sm text-foreground leading-relaxed">
+                    {scripture}
+                  </p>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
       )}

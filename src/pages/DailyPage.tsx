@@ -42,6 +42,7 @@ export const DailyPage = () => {
           reference: selectedScripture.reference,
           commentary: selectedScripture.commentary,
           prayer: selectedScripture.prayer,
+          relatedScriptures: selectedScripture.relatedScriptures,
           isRead: false,
           createdAt: new Date()
         };
@@ -174,6 +175,7 @@ export const DailyPage = () => {
           reference={todayScripture.reference}
           commentary={todayScripture.commentary}
           prayer={todayScripture.prayer}
+          relatedScriptures={todayScripture.relatedScriptures}
           isBookmarked={isBookmarked}
           onBookmark={handleBookmark}
           onShare={() => {

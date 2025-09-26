@@ -8,6 +8,7 @@ export interface DailyScripture {
   reference: string;
   commentary?: string;
   prayer?: string;
+  relatedScriptures?: string[];
   isRead: boolean;
   createdAt: Date;
 }
