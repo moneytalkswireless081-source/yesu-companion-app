@@ -139,15 +139,32 @@ ${user?.displayName || 'A YesuApp User'}`);
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="font-medium text-foreground">Daily Notifications</p>
-              <p className="text-sm text-muted-foreground">Daily scripture at {notifications.dailyTime}</p>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="font-medium text-foreground">Daily Notifications</p>
+                <p className="text-sm text-muted-foreground">Daily scripture at {notifications.dailyTime}</p>
+              </div>
+              <Switch
+                checked={notifications.dailyNotifications}
+                onCheckedChange={() => handleNotificationToggle('dailyNotifications')}
+              />
             </div>
-            <Switch
-              checked={notifications.dailyNotifications}
-              onCheckedChange={() => handleNotificationToggle('dailyNotifications')}
-            />
+            
+            {notifications.dailyNotifications && (
+              <div className="ml-6 flex items-center gap-3">
+                <Clock className="h-4 w-4 text-muted-foreground" />
+                <div className="flex items-center gap-2">
+                  <label className="text-sm text-muted-foreground">Time:</label>
+                  <input
+                    type="time"
+                    value={notifications.dailyTime}
+                    onChange={(e) => updateNotifications({ dailyTime: e.target.value })}
+                    className="px-2 py-1 text-sm border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+              </div>
+            )}
           </div>
           
           <div className="flex items-center justify-between">
