@@ -174,7 +174,7 @@ ${user?.displayName || 'A YesuApp User'}`);
         </CardContent>
       </Card>
 
-      {/* Theme Selection */}
+      {/* Theme & Appearance */}
       <Card className="shadow-card">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
@@ -182,48 +182,97 @@ ${user?.displayName || 'A YesuApp User'}`);
             Theme & Appearance
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Dark/Light Toggle */}
-          <div>
-            <p className="font-medium text-foreground mb-3">Mode</p>
-            <div className="flex gap-2">
-              <Button
-                variant={settings.theme === 'light' ? 'default' : 'outline'}
-                onClick={() => handleSettingChange('theme', 'light')}
-                className="flex-1 justify-center h-12"
-              >
-                <Sun className="h-4 w-4 mr-2" />
-                Light
-              </Button>
-              <Button
-                variant={settings.theme === 'dark' ? 'default' : 'outline'}
-                onClick={() => handleSettingChange('theme', 'dark')}
-                className="flex-1 justify-center h-12"
-              >
-                <Moon className="h-4 w-4 mr-2" />
-                Dark
-              </Button>
+        <CardContent className="space-y-4">
+          {/* Dark/Light Mode Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Moon className="h-5 w-5 text-muted-foreground" />
+              <div>
+                <p className="font-medium text-foreground">Dark Mode</p>
+                <p className="text-sm text-muted-foreground">
+                  {settings.theme === 'dark' ? 'Dark theme enabled' : 'Light theme enabled'}
+                </p>
+              </div>
             </div>
+            <Switch
+              checked={settings.theme === 'dark'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'dark' : 'light')}
+            />
           </div>
 
-          {/* Theme Selection */}
-          <div>
-            <p className="font-medium text-foreground mb-3">Theme Style</p>
-            <div className="grid grid-cols-2 gap-2">
-              {themeOptions.map((theme) => {
-                return (
-                  <Button
-                    key={theme.value}
-                    variant={settings.theme === theme.value ? 'default' : 'outline'}
-                    onClick={() => handleSettingChange('theme', theme.value)}
-                    className="justify-start h-auto p-3"
-                  >
-                    <span className="text-lg mr-2">{theme.icon}</span>
-                    <span>{theme.label}</span>
-                  </Button>
-                );
-              })}
+          {/* Ocean Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">🌊</span>
+              <div>
+                <p className="font-medium text-foreground">Ocean Theme</p>
+                <p className="text-sm text-muted-foreground">Calming blue tones</p>
+              </div>
             </div>
+            <Switch
+              checked={settings.theme === 'ocean'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'ocean' : 'light')}
+            />
+          </div>
+
+          {/* Forest Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">🌲</span>
+              <div>
+                <p className="font-medium text-foreground">Forest Theme</p>
+                <p className="text-sm text-muted-foreground">Natural green palette</p>
+              </div>
+            </div>
+            <Switch
+              checked={settings.theme === 'forest'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'forest' : 'light')}
+            />
+          </div>
+
+          {/* Sunset Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">🌅</span>
+              <div>
+                <p className="font-medium text-foreground">Sunset Theme</p>
+                <p className="text-sm text-muted-foreground">Warm orange and pink hues</p>
+              </div>
+            </div>
+            <Switch
+              checked={settings.theme === 'sunset'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'sunset' : 'light')}
+            />
+          </div>
+
+          {/* Royal Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">👑</span>
+              <div>
+                <p className="font-medium text-foreground">Royal Theme</p>
+                <p className="text-sm text-muted-foreground">Rich purple and gold</p>
+              </div>
+            </div>
+            <Switch
+              checked={settings.theme === 'royal'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'royal' : 'light')}
+            />
+          </div>
+
+          {/* Minimal Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-lg">⚪</span>
+              <div>
+                <p className="font-medium text-foreground">Minimal Theme</p>
+                <p className="text-sm text-muted-foreground">Clean and simple</p>
+              </div>
+            </div>
+            <Switch
+              checked={settings.theme === 'minimal'}
+              onCheckedChange={(checked) => handleSettingChange('theme', checked ? 'minimal' : 'light')}
+            />
           </div>
         </CardContent>
       </Card>

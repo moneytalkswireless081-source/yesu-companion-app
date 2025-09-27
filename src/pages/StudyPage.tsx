@@ -6,14 +6,18 @@ import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { BookOpen, Search, Star, Clock, Users, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { studyPlansDatabase, getUserProgress, getStudyPlanById, updateLessonProgress, StudyPlan, StudyLesson } from '@/lib/studyPlans';
+import { studyPlansDatabase, StudyPlan, StudyLesson } from '@/lib/studyPlans';
+import { useAppStore } from '@/stores/useAppStore';
 
 export const StudyPage = () => {
   const { toast } = useToast();
-  const [studyPlans, setStudyPlans] = useState<(StudyPlan & { progress: number })[]>([]);
+  const { getStudyProgress, updateStudyProgress } = useAppStore();
+  const [studyPlans, setStudyPlans] = useState<(StudyPlan & { progress: number; currentDay: number })[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<StudyPlan | null>(null);
   const [selectedLesson, setSelectedLesson] = useState<StudyLesson | null>(null);
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
   const [isLessonOpen, setIsLessonOpen] = useState(false);
+  const [availableLessons, setAvailableLessons] = useState<StudyLesson[]>([]);
 
   const recentStudies = [
     {
@@ -29,58 +33,71 @@ export const StudyPage = () => {
   ];
 
   useEffect(() => {
-    const loadStudyPlans = async () => {
-      const plansWithProgress = await Promise.all(
-        studyPlansDatabase.map(async (plan) => ({
+    const loadStudyPlans = () => {
+      const plansWithProgress = studyPlansDatabase.map((plan) => {
+        const progress = getStudyProgress(plan.id);
+        const progressPercentage = Math.round((progress.completedLessons.length / plan.duration) * 100);
+        return {
           ...plan,
-          progress: await getUserProgress(plan.id)
-        }))
-      );
+          progress: progressPercentage,
+          currentDay: progress.currentDay
+        };
+      });
       setStudyPlans(plansWithProgress);
     };
 
     loadStudyPlans();
-  }, []);
+  }, [getStudyProgress]);
 
-  const handleStartPlan = (plan: StudyPlan & { progress: number }) => {
-    if (plan.progress > 0) {
-      // Continue existing plan
-      setSelectedPlan(plan);
-      const nextLesson = plan.lessons.find(lesson => lesson.day > plan.progress);
-      if (nextLesson) {
-        setSelectedLesson(nextLesson);
-        setIsLessonOpen(true);
-      }
-    } else {
-      // Start new plan
-      setSelectedPlan(plan);
-      setSelectedLesson(plan.lessons[0]);
+  const handleStartPlan = (plan: StudyPlan & { progress: number; currentDay: number }) => {
+    const progress = getStudyProgress(plan.id);
+    setSelectedPlan(plan);
+    setCompletedLessons(progress.completedLessons);
+    
+    // Find the current lesson to show
+    const currentLesson = plan.lessons.find(lesson => lesson.day === progress.currentDay);
+    if (currentLesson) {
+      setSelectedLesson(currentLesson);
       setIsLessonOpen(true);
+      
+      // Set available lessons (completed + current, but not future ones)
+      const available = plan.lessons.filter(lesson => 
+        lesson.day <= progress.currentDay || progress.completedLessons.includes(lesson.id)
+      );
+      setAvailableLessons(available);
     }
     
     toast({
-      title: plan.progress > 0 ? "Continuing Study" : "Study Plan Started",
-      description: `"${plan.title}" is now open!`
+      title: progress.currentDay > 1 ? "Continuing Study" : "Study Plan Started",
+      description: `"${plan.title}" Day ${progress.currentDay} is now open!`
     });
   };
 
-  const handleCompleteLesson = async (lesson: StudyLesson) => {
+  const handleCompleteLesson = (lesson: StudyLesson) => {
     if (!selectedPlan) return;
     
-    await updateLessonProgress(selectedPlan.id, lesson.id, true);
+    // Update progress in store
+    const progress = getStudyProgress(selectedPlan.id);
+    const nextDay = lesson.day + 1;
+    updateStudyProgress(selectedPlan.id, nextDay, lesson.id);
     
     // Update local state
     setStudyPlans(prev => prev.map(plan => 
       plan.id === selectedPlan.id 
-        ? { ...plan, progress: Math.max(plan.progress, lesson.day) }
+        ? { 
+            ...plan, 
+            progress: Math.round(((progress.completedLessons.length + 1) / plan.duration) * 100),
+            currentDay: nextDay <= plan.duration ? nextDay : plan.duration
+          }
         : plan
     ));
     
+    setCompletedLessons(prev => [...prev, lesson.id]);
     setIsLessonOpen(false);
     
     toast({
       title: "Lesson Completed!",
-      description: `Great job completing "${lesson.title}"`
+      description: `Great job completing "${lesson.title}". ${nextDay <= selectedPlan.duration ? `Day ${nextDay} is now available!` : 'Study plan completed!'}`
     });
   };
 
@@ -195,9 +212,9 @@ export const StudyPage = () => {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Progress</span>
-                      <span className="font-medium">{plan.progress}/{plan.duration} days</span>
+                      <span className="font-medium">Day {plan.currentDay}/{plan.duration}</span>
                     </div>
-                    <Progress value={(plan.progress / plan.duration) * 100} className="h-2" />
+                    <Progress value={plan.progress} className="h-2" />
                   </div>
                 )}
 
@@ -279,6 +296,21 @@ export const StudyPage = () => {
                   <h3 className="font-semibold mb-2">Study Content</h3>
                   <p className="text-muted-foreground leading-relaxed">{selectedLesson.content}</p>
                 </div>
+
+                {/* Additional Scriptures */}
+                {selectedLesson.additionalScriptures && selectedLesson.additionalScriptures.length > 0 && (
+                  <div>
+                    <h3 className="font-semibold mb-2">Additional Scriptures for Study</h3>
+                    <ul className="space-y-1">
+                      {selectedLesson.additionalScriptures.map((scripture, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-primary font-medium">•</span>
+                          <span className="text-muted-foreground text-sm">{scripture}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Reflection Questions */}
                 <div>

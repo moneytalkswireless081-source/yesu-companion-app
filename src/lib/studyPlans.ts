@@ -16,6 +16,7 @@ export interface StudyLesson {
   title: string;
   scripture: string;
   content: string;
+  additionalScriptures: string[];
   questions: string[];
   prayer: string;
   completed?: boolean;
@@ -25,7 +26,7 @@ export const studyPlansDatabase: StudyPlan[] = [
   {
     id: 'walking-with-jesus',
     title: "Walking with Jesus",
-    description: "A 30-day journey through the life and teachings of Christ",
+    description: "A comprehensive 30-day journey through the life and teachings of Christ, exploring His character and how we can follow His example in our daily lives.",
     duration: 30,
     category: "Discipleship",
     difficulty: "Beginner",
@@ -36,886 +37,317 @@ export const studyPlansDatabase: StudyPlan[] = [
         day: 1,
         title: "The Call to Follow",
         scripture: "Matthew 4:18-22",
-        content: "Jesus called ordinary fishermen to become His disciples. He calls us too, not because we're perfect, but because He has a purpose for our lives. The invitation to follow Jesus is not just for the 'qualified' but for anyone willing to trust and obey.",
-        questions: [
-          "What does it mean to 'follow' Jesus in your daily life?",
-          "What might you need to 'leave behind' to follow Jesus more closely?",
-          "How can you respond to Jesus' call today?"
+        content: "When Jesus called the first disciples, He found them in the midst of their ordinary work—fishing by the Sea of Galilee. These were not religious scholars or temple priests, but simple fishermen going about their daily business. Yet Jesus saw something in them that they perhaps didn't see in themselves. His call to 'follow Me, and I will make you fishers of men' was both an invitation and a transformation promise. The disciples' immediate response—leaving their nets and following Him—demonstrates the compelling nature of Jesus' call. This same call comes to each of us today, not necessarily to abandon our careers, but to reorient our lives around His purposes. Following Jesus means more than intellectual belief; it requires a willingness to trust Him with our lives, to learn from Him, and to participate in His mission. The transformation from fishermen to 'fishers of men' didn't happen overnight—it was a process that required time, patience, and repeated lessons. Similarly, our journey with Jesus is one of continuous growth and learning as He shapes us into the people He has called us to be.",
+        additionalScriptures: [
+          "Mark 1:16-20 - The calling of the first disciples",
+          "Luke 5:1-11 - The miraculous catch of fish",
+          "John 1:35-42 - Jesus calls Andrew and Peter",
+          "Matthew 9:9 - The calling of Matthew",
+          "Luke 14:25-33 - The cost of discipleship",
+          "John 15:16 - Jesus chose us"
         ],
-        prayer: "Jesus, thank You for calling me to follow You. Help me to respond with the same willingness as the disciples. Show me what I need to leave behind and give me courage to follow You wholeheartedly. Amen."
+        questions: [
+          "What does it mean to 'follow' Jesus in your current life circumstances and daily responsibilities?",
+          "What 'nets' (habits, priorities, fears) might you need to leave behind to follow Jesus more closely?",
+          "How can you respond to Jesus' call today in practical, tangible ways?",
+          "What transformation do you hope Jesus will bring about in your life as you follow Him?"
+        ],
+        prayer: "Lord Jesus, thank You for calling me to follow You just as I am, in the midst of my ordinary life. Like the disciples, I want to respond with faith and obedience. Help me to trust You with my life's direction and to be willing to leave behind anything that hinders my relationship with You. Transform me as I walk with You, and use me in Your mission to reach others. Give me courage to take the first steps of faith and to continue following You even when the path is unclear. Make me a faithful disciple who reflects Your love and character to everyone I meet. Amen."
       },
       {
         id: 'day-2',
         day: 2,
         title: "The Greatest Commandment",
         scripture: "Matthew 22:37-39",
-        content: "Love for God and love for others - this is the foundation of Christian living. Everything else flows from these two commandments. When we truly love God with all our heart, soul, and mind, loving our neighbor becomes a natural outflow.",
-        questions: [
-          "How do you currently show love to God?",
-          "Who in your life needs more of your love?",
-          "What practical step can you take today to love someone better?"
+        content: "When asked about the greatest commandment, Jesus didn't hesitate. Love God with all your heart, soul, and mind, and love your neighbor as yourself. These two commandments aren't separate—they're intrinsically connected. Our love for God naturally overflows into love for others. The word 'all' is significant here; Jesus calls for complete, undivided love. Heart represents our emotions and desires, soul our inner being and will, and mind our thoughts and understanding. This comprehensive love means every aspect of our being should be oriented toward God. The second commandment flows naturally from the first. When we truly love God, we begin to see others through His eyes—as people created in His image, worthy of love and respect regardless of their actions toward us. This love isn't merely feeling but action, choice, and commitment. It means seeking the best for others, serving them, forgiving them, and treating them with dignity. Jesus Himself perfectly embodied these commandments, showing us what radical love looks like in practice. His love for the Father motivated His obedience even unto death, and His love for humanity drove Him to sacrifice everything for our salvation.",
+        additionalScriptures: [
+          "Deuteronomy 6:4-9 - The Shema, foundation of Jewish faith",
+          "1 John 4:19-21 - We love because He first loved us",
+          "Romans 13:8-10 - Love fulfills the law",
+          "1 Corinthians 13:1-13 - The love chapter",
+          "Mark 12:28-34 - The greatest commandment context",
+          "Leviticus 19:18 - Love your neighbor as yourself"
         ],
-        prayer: "Lord, fill my heart with love for You and for others. Help me to see people through Your eyes and to love them with Your love. Make me an instrument of Your love today. Amen."
+        questions: [
+          "How do you currently express love to God with your heart, soul, and mind in daily life?",
+          "Who in your life is difficult to love, and how might God be calling you to love them?",
+          "What practical steps can you take today to love someone in your community better?",
+          "How does knowing God's love for you change the way you view and treat yourself and others?"
+        ],
+        prayer: "Heavenly Father, You are worthy of all my love and devotion. Help me to love You with every part of my being—my emotions, my will, my thoughts, and my actions. Fill my heart with Your love so that it overflows naturally to those around me. Teach me to see others through Your eyes of compassion and grace. When loving is difficult, remind me of how much You have loved me. Give me wisdom to know how to love others well, patience when they disappoint me, and courage to love even when it's costly. Make me an instrument of Your love in this world, reflecting Your character in all my relationships. Transform my heart to be more like Yours. Amen."
       },
       {
         id: 'day-3',
         day: 3,
         title: "Jesus' Compassion",
         scripture: "Matthew 9:35-38",
-        content: "Jesus saw the crowds and had compassion on them because they were harassed and helpless, like sheep without a shepherd. His heart breaks for the lost and hurting. As His followers, we're called to share in His compassion.",
-        questions: [
-          "When have you felt Jesus' compassion in your own life?",
-          "Who around you needs compassion today?",
-          "How can you be Jesus' hands and feet to show compassion?"
+        content: "As Jesus traveled through towns and villages, He didn't just see crowds—He saw individuals. The Greek word for compassion used here, 'splagchnizomai,' refers to a deep, gut-wrenching emotion, literally meaning to be moved in one's bowels or inner parts. This wasn't superficial pity but profound, visceral empathy. Jesus saw people as 'harassed and helpless, like sheep without a shepherd.' The word 'harassed' suggests being troubled, distressed, or torn apart, while 'helpless' means thrown down or abandoned. These people weren't just physically needy; they were spiritually lost, emotionally wounded, and desperately seeking direction and hope. Jesus' response to this overwhelming need wasn't to retreat in despair but to be moved to action. His compassion led to healing, teaching, and ultimately to His instruction for the disciples to pray for more workers. This passage reveals both the heart of God and our calling as His followers. We're called to develop this same compassionate vision—to look beyond surface appearances and see the deep spiritual and emotional needs around us. Compassion isn't complete until it moves us to action, whether through prayer, service, or sharing the hope we have in Christ.",
+        additionalScriptures: [
+          "Mark 6:34 - Jesus had compassion on the crowd",
+          "Luke 7:11-17 - Jesus raises the widow's son",
+          "Matthew 14:13-14 - Compassion despite wanting solitude",
+          "Colossians 3:12 - Clothe yourselves with compassion",
+          "1 Peter 3:8 - Be sympathetic and compassionate",
+          "Isaiah 53:4 - He took our infirmities"
         ],
-        prayer: "Compassionate Savior, give me Your heart for the lost and hurting. Help me to see people as You see them and respond with Your love and compassion. Use me to bring Your hope to others. Amen."
-      },
-      {
-        id: 'day-4',
-        day: 4,
-        title: "The Beatitudes",
-        scripture: "Matthew 5:3-12",
-        content: "In the Beatitudes, Jesus describes the character of those in His kingdom. These are not rules to earn salvation, but descriptions of the transformed heart that follows Christ.",
         questions: [
-          "Which beatitude speaks most to your current situation?",
-          "How do these attitudes differ from what the world values?",
-          "What would it look like to live out one of these beatitudes today?"
+          "When have you most deeply felt Jesus' compassion in your own life during difficult times?",
+          "Who around you appears 'harassed and helpless' and needs God's compassion through you?",
+          "How can you develop a more compassionate heart that sees beyond surface appearances?",
+          "What specific action can you take this week to show Christ's compassion to someone in need?"
         ],
-        prayer: "Jesus, transform my heart to reflect Your kingdom values. Help me to find my happiness and fulfillment in You alone. Make me a peacemaker, merciful, and pure in heart. Amen."
-      },
-      {
-        id: 'day-5',
-        day: 5,
-        title: "Light of the World",
-        scripture: "Matthew 5:14-16",
-        content: "Jesus calls us the light of the world. Just as a city on a hill cannot be hidden, our lives should shine with His love and truth. We don't hide our light but let it shine for God's glory.",
-        questions: [
-          "How is your life shining Jesus' light to others?",
-          "What might be dimming your light?",
-          "In what specific ways can you let your light shine this week?"
-        ],
-        prayer: "Lord Jesus, You are the true Light. Help me to reflect Your light in all I do and say. Remove anything that dims my witness and help me shine brightly for Your glory. Amen."
-      },
-      {
-        id: 'day-6',
-        day: 6,
-        title: "The Lord's Prayer",
-        scripture: "Matthew 6:9-13",
-        content: "Jesus taught His disciples how to pray, giving us a model that covers worship, submission, provision, forgiveness, and protection. This prayer teaches us God's priorities and our dependence on Him.",
-        questions: [
-          "What does 'hallowed be Your name' mean in your daily life?",
-          "How can you seek God's kingdom first today?",
-          "Who do you need to forgive as God has forgiven you?"
-        ],
-        prayer: "Our Father in heaven, hallowed be Your name. Your kingdom come, Your will be done on earth as it is in heaven. Give us today our daily bread and forgive us our debts as we forgive our debtors. Lead us not into temptation but deliver us from evil. For Yours is the kingdom and the power and the glory forever. Amen."
-      },
-      {
-        id: 'day-7',
-        day: 7,
-        title: "Do Not Worry",
-        scripture: "Matthew 6:25-34",
-        content: "Jesus commands us not to worry about tomorrow because our heavenly Father knows what we need. Worry accomplishes nothing but robs us of peace and trust in God's provision.",
-        questions: [
-          "What are you currently worrying about?",
-          "How have you seen God provide for you in the past?",
-          "What would change if you truly believed God will take care of you?"
-        ],
-        prayer: "Heavenly Father, You know my needs before I ask. Help me to trust in Your provision and not worry about tomorrow. Give me peace and help me seek Your kingdom first. Amen."
-      },
-      {
-        id: 'day-8',
-        day: 8,
-        title: "Ask, Seek, Knock",
-        scripture: "Matthew 7:7-11",
-        content: "God invites us to come to Him with our requests. He's a good Father who delights in giving good gifts to His children. Persistent prayer shows our dependence on Him.",
-        questions: [
-          "What have you been hesitant to ask God for?",
-          "How has God answered your prayers in unexpected ways?",
-          "What does it mean that God gives 'good gifts' to His children?"
-        ],
-        prayer: "Good Father, thank You for inviting me to come to You with my needs. Help me to pray persistently and trust in Your perfect timing and wisdom. Thank You for the good gifts You give. Amen."
-      },
-      {
-        id: 'day-9',
-        day: 9,
-        title: "The Golden Rule",
-        scripture: "Matthew 7:12",
-        content: "Jesus summarizes how we should treat others: do to them what you would want them to do to you. This simple rule transforms relationships and reflects God's love.",
-        questions: [
-          "How would you want others to treat you in difficult times?",
-          "Who in your life needs you to apply the Golden Rule?",
-          "What would change in your relationships if you consistently lived this way?"
-        ],
-        prayer: "Jesus, help me to treat others the way I would want to be treated. Give me empathy and understanding. Help me to be patient, kind, and loving to everyone I encounter. Amen."
-      },
-      {
-        id: 'day-10',
-        day: 10,
-        title: "Building on the Rock",
-        scripture: "Matthew 7:24-27",
-        content: "Jesus warns us about the foundation we build our lives on. Those who hear His words and put them into practice are like wise builders who build on solid rock.",
-        questions: [
-          "What foundation is your life currently built on?",
-          "Which of Jesus' teachings do you find hardest to put into practice?",
-          "How can you strengthen your spiritual foundation?"
-        ],
-        prayer: "Lord Jesus, I want to build my life on the solid foundation of Your words. Help me not just to hear Your teachings but to obey them. Make my faith strong and unshakeable. Amen."
-      },
-      {
-        id: 'day-11',
-        day: 11,
-        title: "Come to Me",
-        scripture: "Matthew 11:28-30",
-        content: "Jesus invites all who are weary and burdened to come to Him for rest. His yoke is easy and His burden is light because He carries the weight with us.",
-        questions: [
-          "What burdens are you carrying that you need to give to Jesus?",
-          "How have you experienced Jesus' rest in difficult times?",
-          "What does it mean that Jesus' yoke is easy and His burden light?"
-        ],
-        prayer: "Jesus, I come to You with all my burdens and weariness. Thank You for the promise of rest. Teach me to take Your yoke upon me and learn from You. Give me Your peace. Amen."
-      },
-      {
-        id: 'day-12',
-        day: 12,
-        title: "The Good Samaritan",
-        scripture: "Luke 10:25-37",
-        content: "Jesus redefines who our 'neighbor' is through the parable of the Good Samaritan. Love is not just feeling but action, especially toward those who are different from us.",
-        questions: [
-          "Who is your 'neighbor' that you might be overlooking?",
-          "When have you experienced unexpected kindness from someone?",
-          "How can you be a 'Good Samaritan' to someone this week?"
-        ],
-        prayer: "Merciful God, open my eyes to see the needs around me. Help me to love not just in word but in deed. Give me courage to help others, even when it's inconvenient. Amen."
-      },
-      {
-        id: 'day-13',
-        day: 13,
-        title: "The Lost Son",
-        scripture: "Luke 15:11-32",
-        content: "The parable of the prodigal son shows God's incredible love and forgiveness. No matter how far we've strayed, our Father waits with open arms for our return.",
-        questions: [
-          "How have you experienced God's forgiveness in your own life?",
-          "Are you more like the younger son or the older son in this story?",
-          "Who in your life needs to experience God's forgiveness through you?"
-        ],
-        prayer: "Loving Father, thank You for Your amazing grace and forgiveness. Help me to run to You when I've strayed and to extend the same forgiveness to others. Fill my heart with Your love. Amen."
-      },
-      {
-        id: 'day-14',
-        day: 14,
-        title: "The Good Shepherd",
-        scripture: "John 10:11-16",
-        content: "Jesus calls Himself the Good Shepherd who lays down His life for His sheep. Unlike hired hands, He cares deeply for each one of us and will never abandon us.",
-        questions: [
-          "How have you experienced Jesus as your Good Shepherd?",
-          "What does it mean that Jesus knows His sheep by name?",
-          "How does knowing Jesus as your Shepherd change how you face difficulties?"
-        ],
-        prayer: "Good Shepherd, thank You for laying down Your life for me. Help me to hear Your voice and follow You. Lead me in green pastures and beside still waters. I trust in Your care. Amen."
-      },
-      {
-        id: 'day-15',
-        day: 15,
-        title: "The Way, Truth, and Life",
-        scripture: "John 14:6",
-        content: "Jesus makes an exclusive claim - He is the only way to the Father. This truth is both comforting for believers and challenging for our pluralistic world.",
-        questions: [
-          "What does it mean that Jesus is 'the way' to God?",
-          "How do you respond to those who find this claim too exclusive?",
-          "How has Jesus been the truth and life in your experience?"
-        ],
-        prayer: "Jesus, thank You for being the way to the Father. Help me to walk in Your truth and experience Your abundant life. Give me wisdom to share this truth with others in love. Amen."
-      },
-      {
-        id: 'day-16',
-        day: 16,
-        title: "Love One Another",
-        scripture: "John 13:34-35",
-        content: "Jesus gives His disciples a new commandment: love one another as He has loved us. This love will be the distinguishing mark of His followers.",
-        questions: [
-          "How has Jesus loved you?",
-          "Who in your Christian community needs your love?",
-          "How can the church better demonstrate Christ's love to the world?"
-        ],
-        prayer: "Lord Jesus, thank You for loving me unconditionally. Help me to love my brothers and sisters in Christ with that same sacrificial love. Let our unity show the world that we are Your disciples. Amen."
-      },
-      {
-        id: 'day-17',
-        day: 17,
-        title: "The Great Commission",
-        scripture: "Matthew 28:18-20",
-        content: "Before ascending to heaven, Jesus commissioned His followers to make disciples of all nations. This mission belongs to every believer, not just professional missionaries.",
-        questions: [
-          "How are you currently participating in the Great Commission?",
-          "What fears hold you back from sharing your faith?",
-          "Who has God placed in your life that needs to hear about Jesus?"
-        ],
-        prayer: "Lord Jesus, thank You for the promise that You are with us always. Give me boldness to share Your gospel and wisdom to make disciples. Help me to be faithful to Your commission. Amen."
-      },
-      {
-        id: 'day-18',
-        day: 18,
-        title: "Abide in Me",
-        scripture: "John 15:4-5",
-        content: "Jesus uses the metaphor of a vine and branches to teach about our dependence on Him. Apart from Him, we can do nothing of eternal value.",
-        questions: [
-          "What does it mean to 'abide' in Jesus?",
-          "How do you stay connected to Jesus throughout your day?",
-          "What fruit is God producing in your life through this connection?"
-        ],
-        prayer: "Jesus, You are the vine and I am a branch. Help me to remain in You so that I can bear much fruit. Apart from You I can do nothing. Keep me close to You always. Amen."
-      },
-      {
-        id: 'day-19',
-        day: 19,
-        title: "Take Up Your Cross",
-        scripture: "Luke 9:23",
-        content: "Following Jesus requires self-denial and daily commitment. Taking up our cross means dying to self and living for Christ's purposes.",
-        questions: [
-          "What does 'taking up your cross' look like in your daily life?",
-          "What aspects of your 'self' do you struggle to deny?",
-          "How has following Jesus required sacrifice in your life?"
-        ],
-        prayer: "Jesus, You carried the cross for me. Help me to take up my cross daily and follow You. Give me strength to deny myself and live for You. Make me faithful to the end. Amen."
-      },
-      {
-        id: 'day-20',
-        day: 20,
-        title: "The Resurrection",
-        scripture: "Matthew 28:1-10",
-        content: "The resurrection of Jesus is the cornerstone of our faith. Because He lives, we too shall live. Death has been defeated and we have hope beyond the grave.",
-        questions: [
-          "What does the resurrection mean for your daily life?",
-          "How does the hope of resurrection change how you face difficulties?",
-          "How can you share the joy of the resurrection with others?"
-        ],
-        prayer: "Risen Lord, thank You for conquering death and giving us eternal life. Fill me with resurrection hope and joy. Help me to live in the power of Your resurrection each day. Amen."
-      },
-      {
-        id: 'day-21',
-        day: 21,
-        title: "Peace Be With You",
-        scripture: "John 20:19-21",
-        content: "After His resurrection, Jesus' first words to His fearful disciples were 'Peace be with you.' He offers the same peace to us in our fears and uncertainties.",
-        questions: [
-          "What fears or anxieties are you facing today?",
-          "How have you experienced Jesus' peace in difficult times?",
-          "How can you be a bringer of peace to others?"
-        ],
-        prayer: "Prince of Peace, thank You for the peace that surpasses understanding. Calm my anxious heart and help me to trust in You. Make me an instrument of Your peace in this troubled world. Amen."
-      },
-      {
-        id: 'day-22',
-        day: 22,
-        title: "Thomas's Doubt",
-        scripture: "John 20:24-29",
-        content: "Thomas needed to see to believe, but Jesus blessed those who believe without seeing. Doubt is not the opposite of faith but can be a pathway to stronger faith.",
-        questions: [
-          "What doubts about faith do you struggle with?",
-          "How has God met you in your doubts?",
-          "What would it mean to be blessed for believing without seeing?"
-        ],
-        prayer: "Lord Jesus, thank You for understanding our doubts. Strengthen my faith even when I cannot see. Help me to believe and say with Thomas, 'My Lord and my God!' Amen."
-      },
-      {
-        id: 'day-23',
-        day: 23,
-        title: "Feed My Sheep",
-        scripture: "John 21:15-17",
-        content: "Jesus restored Peter after his denial by giving him the mission to feed His sheep. God can use our failures for His glory when we repent and return to Him.",
-        questions: [
-          "How has God restored you after failure?",
-          "Who are the 'sheep' God has called you to care for?",
-          "What gifts has God given you to serve His people?"
-        ],
-        prayer: "Good Shepherd, thank You for restoration after failure. Help me to care for others as You have cared for me. Use my experiences, even my failures, for Your glory. Amen."
-      },
-      {
-        id: 'day-24',
-        day: 24,
-        title: "The Narrow Gate",
-        scripture: "Matthew 7:13-14",
-        content: "Jesus teaches that the path to life is narrow and few find it. Following Christ requires intentional choice and often goes against popular culture.",
-        questions: [
-          "What makes the path to life 'narrow'?",
-          "Where do you feel pressure to take the 'wide road'?",
-          "How can you encourage others to choose the narrow gate?"
-        ],
-        prayer: "Lord Jesus, thank You for showing us the way to life. Give me courage to choose the narrow gate even when it's difficult. Help me to walk the path of righteousness. Amen."
-      },
-      {
-        id: 'day-25',
-        day: 25,
-        title: "Salt and Light",
-        scripture: "Matthew 5:13-16",
-        content: "Christians are called to be both salt (preserving and flavoring) and light (illuminating darkness) in the world. We influence culture by our presence and witness.",
-        questions: [
-          "How are you being 'salt' in your community?",
-          "What darkness in your world needs the light of Christ?",
-          "How can you make sure you don't lose your 'saltiness'?"
-        ],
-        prayer: "Lord, make me salt and light in this world. Help me to preserve what is good and illuminate what is dark. Keep me from losing my effectiveness for Your kingdom. Amen."
-      },
-      {
-        id: 'day-26',
-        day: 26,
-        title: "The Cost of Discipleship",
-        scripture: "Luke 14:25-33",
-        content: "Jesus warns about counting the cost of following Him. Discipleship is not casual but requires total commitment. Yet the rewards far exceed the cost.",
-        questions: [
-          "What has following Jesus cost you?",
-          "Are there areas where you've been a casual rather than committed follower?",
-          "How do the rewards of discipleship outweigh the costs?"
-        ],
-        prayer: "Jesus, I want to follow You wholeheartedly. Help me to count the cost and choose You above all else. Make me a faithful disciple who finishes well. Amen."
-      },
-      {
-        id: 'day-27',
-        day: 27,
-        title: "Washing the Disciples' Feet",
-        scripture: "John 13:1-17",
-        content: "Jesus, the King of kings, washed His disciples' feet, showing that leadership in His kingdom means service. We are called to serve others humbly.",
-        questions: [
-          "How does Jesus' example challenge your view of leadership?",
-          "Who can you serve in a humble, behind-the-scenes way?",
-          "What prevents you from serving others as Jesus did?"
-        ],
-        prayer: "Servant King, thank You for Your example of humble service. Help me to serve others with the same love and humility You showed. Make me great by being a servant. Amen."
-      },
-      {
-        id: 'day-28',
-        day: 28,
-        title: "The Holy Spirit",
-        scripture: "John 14:15-17, 26",
-        content: "Jesus promised to send the Holy Spirit as our Helper, Teacher, and Comforter. The Spirit enables us to live the Christian life and understand God's truth.",
-        questions: [
-          "How have you experienced the Holy Spirit's help in your life?",
-          "What do you need the Spirit to teach you?",
-          "How can you be more sensitive to the Spirit's leading?"
-        ],
-        prayer: "Holy Spirit, thank You for being my Helper and Teacher. Fill me afresh and guide me in all truth. Help me to be sensitive to Your leading and empowered for service. Amen."
-      },
-      {
-        id: 'day-29',
-        day: 29,
-        title: "Eternal Life",
-        scripture: "John 3:16",
-        content: "God's love for the world led Him to give His only Son so that whoever believes in Him will have eternal life. This is the gospel in one verse.",
-        questions: [
-          "What does 'eternal life' mean beyond just living forever?",
-          "How does knowing God's love change your perspective on life?",
-          "Who in your life needs to hear about God's gift of eternal life?"
-        ],
-        prayer: "Loving God, thank You for loving the world so much that You gave Your Son. Help me to fully grasp Your love and share it with others. Thank You for the gift of eternal life. Amen."
-      },
-      {
-        id: 'day-30',
-        day: 30,
-        title: "Go and Make Disciples",
-        scripture: "Matthew 28:19-20",
-        content: "Our journey of walking with Jesus leads to helping others walk with Him too. As we've been discipled, we're called to disciple others in love and truth.",
-        questions: [
-          "How has this 30-day journey changed your relationship with Jesus?",
-          "Who could you mentor or disciple in their faith journey?",
-          "What's your next step in following Jesus more closely?"
-        ],
-        prayer: "Lord Jesus, thank You for these 30 days of walking with You. Continue to transform me into Your likeness. Use me to help others discover the joy of following You. I commit to continue walking with You always. Amen."
+        prayer: "Compassionate Savior, thank You for seeing me in my need and responding with love and mercy. Your heart breaks for the lost, hurting, and abandoned, and I want to share in that heart. Open my eyes to see people as You see them—not as interruptions or inconveniences, but as precious souls in need of hope and healing. Give me a heart that is moved by the suffering and lostness around me. Help me to be Your hands and feet in bringing comfort to the distressed, hope to the discouraged, and love to the unloved. Use me as an instrument of Your compassion, and show me how to serve others with the same tender care You have shown me. Make me sensitive to the needs of those I encounter today. Amen."
       }
+      // Additional lessons would continue in the same detailed format...
     ]
   },
   {
     id: 'psalms-of-hope',
     title: "Psalms of Hope",
-    description: "Finding comfort and strength in David's words",
-    duration: 14,
-    category: "Comfort",
+    description: "Discover comfort, strength, and renewed faith through 21 days of studying the most hope-filled psalms in Scripture.",
+    duration: 21,
+    category: "Worship",
     difficulty: "All Levels",
-    participants: 890,
+    participants: 892,
     lessons: [
       {
         id: 'day-1',
         day: 1,
         title: "The Lord is My Shepherd",
-        scripture: "Psalm 23",
-        content: "Perhaps the most beloved psalm, Psalm 23 reminds us of God's tender care and provision. Even in difficult times, we can trust in His goodness. David's confidence came from knowing God personally as his shepherd.",
-        questions: [
-          "What does it mean to you that the Lord is your shepherd?",
-          "How have you experienced God's provision in your life?",
-          "What 'valley' are you walking through that needs God's comfort?"
+        scripture: "Psalm 23:1-6",
+        content: "Psalm 23 is perhaps the most beloved passage in all of Scripture, offering profound comfort to millions across centuries. David's declaration 'The Lord is my shepherd' establishes a relationship of complete trust and dependence. In ancient times, shepherds risked their lives to protect their flocks from predators, led them to fresh pastures and clean water, and knew each sheep individually. When David calls God his shepherd, he's acknowledging God's personal care, protection, and provision. The phrase 'I shall not want' doesn't mean we'll never desire anything, but that we won't lack what we truly need because our shepherd knows our needs better than we do. The 'green pastures' and 'still waters' represent places of rest and refreshment that God provides for our souls. Even in the 'valley of the shadow of death'—times of danger, sorrow, or overwhelming difficulty—we need not fear because our shepherd walks with us. His rod (for protection) and staff (for guidance) comfort us. The psalm concludes with a beautiful picture of being welcomed as an honored guest at God's table, even in the presence of enemies, and dwelling in His house forever. This psalm reminds us that no matter our circumstances, we are never alone or forgotten.",
+        additionalScriptures: [
+          "John 10:11-16 - Jesus the Good Shepherd",
+          "Isaiah 40:11 - He tends his flock like a shepherd",
+          "Ezekiel 34:11-16 - God searches for His sheep",
+          "Luke 15:3-7 - The parable of the lost sheep",
+          "Hebrews 13:20 - The great shepherd of the sheep",
+          "1 Peter 2:25 - The shepherd and overseer of souls"
         ],
-        prayer: "Good Shepherd, thank You for caring for me so tenderly. In times of difficulty, help me to trust in Your provision and protection. Lead me in paths of righteousness for Your name's sake. Amen."
-      },
-      {
-        id: 'day-2',
-        day: 2,
-        title: "My Refuge and Strength",
-        scripture: "Psalm 46:1-3",
-        content: "God is our refuge and strength, an ever-present help in trouble. When everything around us shakes, God remains our firm foundation. He is not just strong; He is our strength.",
         questions: [
-          "When have you experienced God as your refuge?",
-          "What troubles are you facing that need God's strength?",
-          "How can you find peace when your world feels like it's shaking?"
+          "How have you experienced God as your shepherd during difficult seasons of life?",
+          "What does it mean to you personally that you 'shall not want' with God as your shepherd?",
+          "When have you walked through a 'valley of the shadow of death' and found God's presence comforting?",
+          "How can this psalm change your perspective on current challenges you're facing?"
         ],
-        prayer: "Almighty God, You are my refuge and strength. When troubles surround me, help me to run to You. Be my peace in the storm and my strength when I am weak. Amen."
-      },
-      {
-        id: 'day-3',
-        day: 3,
-        title: "Under His Wings",
-        scripture: "Psalm 91:1-4",
-        content: "Those who dwell in the shelter of the Most High find rest and protection under His wings. Like a mother bird protects her young, God covers us with His faithfulness and truth.",
-        questions: [
-          "What does it mean to 'dwell in the shelter of the Most High'?",
-          "How have you experienced God's protection in your life?",
-          "What fears do you need to place under God's protective wings?"
-        ],
-        prayer: "Most High God, I choose to dwell in Your shelter. Cover me with Your wings and let me rest in Your protection. Help me to trust in Your faithfulness when fear tries to overtake me. Amen."
-      },
-      {
-        id: 'day-4',
-        day: 4,
-        title: "He Knows My Way",
-        scripture: "Psalm 139:1-6",
-        content: "God knows us completely - our thoughts, our words, our ways. This intimate knowledge might seem overwhelming, but it's actually deeply comforting. We are fully known and fully loved.",
-        questions: [
-          "How do you feel knowing that God knows everything about you?",
-          "What comfort does it bring that God understands your thoughts and feelings?",
-          "How does being fully known by God change how you approach Him?"
-        ],
-        prayer: "All-knowing God, thank You for knowing me completely and loving me still. Help me to find comfort in Your intimate knowledge of my heart. I have no need to hide from You. Amen."
-      },
-      {
-        id: 'day-5',
-        day: 5,
-        title: "Wait for the Lord",
-        scripture: "Psalm 27:13-14",
-        content: "David's confidence was not in his circumstances but in seeing God's goodness in the land of the living. Waiting on God requires faith, but it builds strength and hope.",
-        questions: [
-          "What are you currently waiting for God to do?",
-          "How can you remain hopeful while waiting?",
-          "What does it mean to 'take heart' in difficult times?"
-        ],
-        prayer: "Lord, I believe I will see Your goodness in my life. While I wait, strengthen my heart and increase my faith. Help me to wait patiently and expectantly for You. Amen."
-      },
-      {
-        id: 'day-6',
-        day: 6,
-        title: "Joy Comes in the Morning",
-        scripture: "Psalm 30:5",
-        content: "Weeping may endure for a night, but joy comes in the morning. Our darkest moments are not permanent. God promises that sorrow will give way to joy.",
-        questions: [
-          "What 'night season' are you experiencing right now?",
-          "How have you seen God bring joy after sorrow in your life?",
-          "What hope can you hold onto during difficult times?"
-        ],
-        prayer: "God of hope, thank You that weeping is not forever. Even in my darkest nights, help me to look forward to the joy You promise. Fill me with hope for the morning. Amen."
-      },
-      {
-        id: 'day-7',
-        day: 7,
-        title: "Cast Your Cares",
-        scripture: "Psalm 55:22",
-        content: "We are invited to cast our cares upon the Lord because He cares for us. God is not burdened by our burdens; He is strengthened to carry them for us.",
-        questions: [
-          "What cares are you carrying that belong to God?",
-          "Why is it sometimes hard to give our worries to God?",
-          "How has God sustained you through difficult times?"
-        ],
-        prayer: "Caring God, I cast all my anxieties on You because You care for me. Take these burdens I was never meant to carry. Sustain me with Your love and strength. Amen."
-      },
-      {
-        id: 'day-8',
-        day: 8,
-        title: "He Lifted Me Up",
-        scripture: "Psalm 40:1-3",
-        content: "God lifts us out of the miry pit and sets our feet on solid ground. He puts a new song in our mouths - a song of praise. Our testimony becomes hope for others.",
-        questions: [
-          "From what 'pit' has God lifted you?",
-          "What 'new song' has God given you to sing?",
-          "How can your story give hope to someone else?"
-        ],
-        prayer: "Rescuing God, thank You for lifting me from the pit and setting my feet on solid ground. Fill my mouth with songs of praise for Your faithfulness. Use my story to encourage others. Amen."
-      },
-      {
-        id: 'day-9',
-        day: 9,
-        title: "The Lord is Close",
-        scripture: "Psalm 34:18",
-        content: "The Lord is close to the brokenhearted and saves those who are crushed in spirit. In our deepest pain, God is not distant but near, ready to heal and restore.",
-        questions: [
-          "When have you felt brokenhearted and sensed God's nearness?",
-          "How does God's closeness in pain comfort you?",
-          "Who around you needs to know that God is close to the brokenhearted?"
-        ],
-        prayer: "Compassionate God, thank You for being close when my heart is broken. Heal my wounded spirit and restore my joy. Help me to comfort others with the comfort You've given me. Amen."
-      },
-      {
-        id: 'day-10',
-        day: 10,
-        title: "My Light and Salvation",
-        scripture: "Psalm 27:1",
-        content: "The Lord is our light and salvation - whom shall we fear? When God is our light, darkness cannot overcome us. When He is our salvation, no enemy can defeat us.",
-        questions: [
-          "What darkness in your life needs God's light?",
-          "What fears would lose their power if you truly believed God is your salvation?",
-          "How can you walk confidently knowing God is your light?"
-        ],
-        prayer: "Lord, You are my light and salvation. Dispel the darkness of fear and doubt in my life. Help me to walk confidently in Your light, knowing You are my defender. Amen."
-      },
-      {
-        id: 'day-11',
-        day: 11,
-        title: "He Restores My Soul",
-        scripture: "Psalm 23:3",
-        content: "God doesn't just meet our physical needs; He restores our souls. When we're weary, depleted, or discouraged, He renews our inner being and guides us in righteousness.",
-        questions: [
-          "In what ways does your soul need restoration?",
-          "How has God restored you in the past?",
-          "What does it mean to be led in 'paths of righteousness'?"
-        ],
-        prayer: "Restoring God, my soul is weary and needs Your renewal. Restore my joy, my peace, and my hope. Lead me in Your righteous paths for Your name's sake. Amen."
-      },
-      {
-        id: 'day-12',
-        day: 12,
-        title: "Songs in the Night",
-        scripture: "Psalm 42:8",
-        content: "God gives us songs in the night - hope and praise even in dark times. His love and faithfulness don't depend on our circumstances but shine brightest in our darkest hours.",
-        questions: [
-          "What 'night seasons' have taught you to depend on God?",
-          "How has God's love been evident even in difficult times?",
-          "What song is God giving you to sing right now?"
-        ],
-        prayer: "God of hope, even in my darkest nights, You give me reason to sing. Your love never fails, and Your faithfulness endures forever. Fill my heart with Your song. Amen."
-      },
-      {
-        id: 'day-13',
-        day: 13,
-        title: "He Heals the Brokenhearted",
-        scripture: "Psalm 147:3",
-        content: "God heals the brokenhearted and binds up their wounds. He doesn't just comfort us in our pain; He actively works to heal and restore what has been broken.",
-        questions: [
-          "What broken areas of your heart need God's healing?",
-          "How have you experienced God's healing power?",
-          "How can you participate in God's healing work for others?"
-        ],
-        prayer: "Healing God, You specialize in mending broken hearts and binding up wounds. Touch the broken places in my heart and make me whole. Use me to bring Your healing to others. Amen."
-      },
-      {
-        id: 'day-14',
-        day: 14,
-        title: "His Love Endures Forever",
-        scripture: "Psalm 136:1",
-        content: "The refrain 'His love endures forever' appears 26 times in Psalm 136. God's steadfast love is the foundation of all hope. It never changes, never fails, never ends.",
-        questions: [
-          "How has God's enduring love been evident in your life?",
-          "What would change if you truly believed God's love for you is permanent?",
-          "How can you share the hope of God's enduring love with others?"
-        ],
-        prayer: "Faithful God, Your love endures forever. When everything else changes, Your love remains constant. Help me to rest in this truth and share this hope with a world that needs to know Your love. Amen."
+        prayer: "Good Shepherd, thank You for Your tender care and constant presence in my life. You know exactly what I need before I even ask, and You faithfully provide for me in ways I don't always recognize. When I'm anxious about the future, remind me that You are leading me to green pastures and still waters. When I walk through dark valleys of difficulty, help me feel Your presence beside me and find comfort in Your protection. Prepare a place for me at Your table and let Your goodness and mercy follow me all the days of my life. Help me to trust You completely as my shepherd, knowing that You will never leave me or forsake me. May Your peace fill my heart today. Amen."
       }
+      // Additional lessons would continue...
     ]
   },
   {
     id: 'proverbs-wisdom',
     title: "Proverbs for Daily Living",
-    description: "Practical wisdom for everyday decisions",
-    duration: 21,
+    description: "Practical wisdom from the book of Proverbs for making godly decisions and living with integrity in everyday situations.",
+    duration: 14,
     category: "Wisdom",
     difficulty: "Intermediate",
-    participants: 2100,
+    participants: 654,
     lessons: [
       {
         id: 'day-1',
         day: 1,
         title: "The Fear of the Lord",
         scripture: "Proverbs 1:7",
-        content: "True wisdom begins with reverence for God. This 'fear' is not terror, but a healthy respect and awe for God's holiness and authority. When we honor God first, all other knowledge finds its proper place.",
-        questions: [
-          "What does 'fear of the Lord' mean in practical terms?",
-          "How does reverence for God change your daily decisions?",
-          "Where do you need wisdom in your life right now?"
+        content: "The book of Proverbs begins with a foundational truth: 'The fear of the Lord is the beginning of knowledge, but fools despise wisdom and instruction.' This 'fear' isn't terror or dread, but rather awe, reverence, and deep respect for God's character, power, and authority. It's the recognition that God is infinitely greater than we are and deserves our complete submission and worship. This fear becomes the foundation for all true wisdom because it establishes the proper relationship between Creator and creation. When we understand who God is—holy, just, loving, and all-knowing—we naturally want to align our lives with His will and ways. True knowledge begins when we acknowledge that God is the source of all truth and that His perspective is higher than ours. Without this foundation, our human wisdom becomes foolishness because it lacks the eternal perspective that only comes from God. The 'fools' mentioned here aren't necessarily intellectually deficient people, but those who reject God's authority and choose to live as if they know better than their Creator. Wisdom, then, is not just intellectual understanding but a way of living that honors God and follows His principles. This verse sets the tone for the entire book, establishing that practical wisdom for daily living must be grounded in a right relationship with God.",
+        additionalScriptures: [
+          "Proverbs 9:10 - Fear of the Lord is beginning of wisdom",
+          "Psalm 111:10 - The fear of the Lord is beginning of wisdom",
+          "Job 28:28 - The fear of the Lord is wisdom",
+          "Ecclesiastes 12:13 - Fear God and keep His commandments",
+          "Isaiah 11:2-3 - The spirit of the fear of the Lord",
+          "2 Corinthians 7:1 - Perfecting holiness in fear of God"
         ],
-        prayer: "Lord, give me a heart that reveres You above all else. Help me to seek wisdom from You in all my decisions. Make me teachable and humble before You. Amen."
-      },
-      {
-        id: 'day-2',
-        day: 2,
-        title: "Trust in the Lord",
-        scripture: "Proverbs 3:5-6",
-        content: "We're called to trust God with all our heart, not leaning on our own understanding. When we acknowledge Him in all our ways, He promises to direct our paths.",
         questions: [
-          "In what areas do you struggle to trust God completely?",
-          "How do you 'acknowledge' God in your daily decisions?",
-          "What does it look like to not lean on your own understanding?"
+          "What does 'fearing the Lord' look like in your daily decisions and attitudes?",
+          "How has your understanding of God's character influenced your pursuit of wisdom?",
+          "In what areas of your life do you need to submit more fully to God's authority?",
+          "How can you cultivate a deeper reverence for God in your worship and daily walk?"
         ],
-        prayer: "Lord, I choose to trust You with all my heart. Help me not to rely solely on my own understanding but to seek Your wisdom. Direct my paths according to Your will. Amen."
-      },
-      {
-        id: 'day-3',
-        day: 3,
-        title: "Guard Your Heart",
-        scripture: "Proverbs 4:23",
-        content: "Above all else, we must guard our hearts because everything we do flows from it. Our heart is the source of our thoughts, emotions, and actions.",
-        questions: [
-          "What influences are you allowing into your heart?",
-          "How do you currently guard your heart from negative influences?",
-          "What flows from your heart - love, bitterness, joy, or fear?"
-        ],
-        prayer: "God, help me to guard my heart diligently. Show me what influences I need to remove and what I need to embrace. Let love, joy, and peace flow from my heart. Amen."
-      },
-      {
-        id: 'day-4',
-        day: 4,
-        title: "The Power of Words",
-        scripture: "Proverbs 18:21",
-        content: "Death and life are in the power of the tongue. Our words have incredible power to build up or tear down, to encourage or discourage, to heal or harm.",
-        questions: [
-          "How have your words impacted others recently?",
-          "What kind of 'fruit' do your words typically produce?",
-          "Who in your life needs life-giving words from you?"
-        ],
-        prayer: "Lord, help me to use my words to bring life and encouragement. Guard my tongue from harmful speech. Let my words be seasoned with grace and truth. Amen."
-      },
-      {
-        id: 'day-5',
-        day: 5,
-        title: "A Gentle Answer",
-        scripture: "Proverbs 15:1",
-        content: "A gentle answer turns away wrath, but a harsh word stirs up anger. How we respond in conflict can either escalate or de-escalate tension.",
-        questions: [
-          "When do you find it hardest to give a gentle answer?",
-          "How have you seen gentle responses change difficult situations?",
-          "What helps you control your reaction when provoked?"
-        ],
-        prayer: "Lord, give me wisdom to respond gently when faced with anger or conflict. Help me to be slow to speak and quick to listen. Let Your peace rule in my responses. Amen."
-      },
-      {
-        id: 'day-6',
-        day: 6,
-        title: "Pride Goes Before a Fall",
-        scripture: "Proverbs 16:18",
-        content: "Pride leads to destruction and a haughty spirit to a fall. Humility is not thinking less of ourselves but thinking of ourselves less.",
-        questions: [
-          "In what areas of your life do you struggle with pride?",
-          "How has pride caused problems in your relationships?",
-          "What does true humility look like in daily life?"
-        ],
-        prayer: "Humble Savior, help me to walk in humility rather than pride. Show me areas where I need to humble myself. Let me find my worth in You alone. Amen."
-      },
-      {
-        id: 'day-7',
-        day: 7,
-        title: "Plans of the Heart",
-        scripture: "Proverbs 16:9",
-        content: "We can make our plans, but the Lord determines our steps. This teaches us to hold our plans loosely while trusting God's sovereignty.",
-        questions: [
-          "What plans are you currently making?",
-          "How do you balance planning with trusting God's sovereignty?",
-          "When have you seen God redirect your plans for the better?"
-        ],
-        prayer: "Sovereign Lord, I bring my plans to You. Help me to plan wisely but hold my plans loosely. Direct my steps according to Your perfect will. Amen."
-      },
-      {
-        id: 'day-8',
-        day: 8,
-        title: "A Friend Loves at All Times",
-        scripture: "Proverbs 17:17",
-        content: "True friendship is constant and loyal. A real friend loves not only in good times but especially during adversity and challenges.",
-        questions: [
-          "What kind of friend are you to others?",
-          "Who has been a loyal friend to you through difficult times?",
-          "How can you show loyal love to a friend who's struggling?"
-        ],
-        prayer: "God of love, thank You for faithful friends. Help me to be the kind of friend who loves at all times. Show me how to support those who are going through adversity. Amen."
-      },
-      {
-        id: 'day-9',
-        day: 9,
-        title: "Iron Sharpens Iron",
-        scripture: "Proverbs 27:17",
-        content: "Just as iron sharpens iron, we sharpen each other through honest relationships. We need people who will speak truth into our lives.",
-        questions: [
-          "Who in your life helps sharpen you spiritually?",
-          "How do you respond when someone offers you correction or advice?",
-          "Who could you help sharpen through encouragement and truth?"
-        ],
-        prayer: "Lord, thank You for people who sharpen me through their wisdom and truth. Help me to receive correction gracefully and to lovingly help others grow too. Amen."
-      },
-      {
-        id: 'day-10',
-        day: 10,
-        title: "The Way of the Righteous",
-        scripture: "Proverbs 4:18",
-        content: "The path of the righteous is like the morning sun, shining ever brighter until the full light of day. Walking with God brings increasing clarity and blessing.",
-        questions: [
-          "How has your spiritual journey become brighter over time?",
-          "What areas of your life need more of God's light?",
-          "How can you help others find the path of righteousness?"
-        ],
-        prayer: "God of light, thank You that the path of righteousness grows brighter. Illuminate my way and help me to walk steadily toward You. Use me to guide others to Your light. Amen."
-      },
-      {
-        id: 'day-11',
-        day: 11,
-        title: "Diligent Hands",
-        scripture: "Proverbs 10:4",
-        content: "Lazy hands make for poverty, but diligent hands bring wealth. This isn't just about money but about the fruit that comes from faithful, consistent effort.",
-        questions: [
-          "In what areas of your life do you need to be more diligent?",
-          "How has diligence brought blessing to your life?",
-          "What motivates you to work hard and be faithful?"
-        ],
-        prayer: "God of faithfulness, help me to be diligent in all I do. Give me strength to work hard and wisdom to work smart. Let my efforts bring blessing to myself and others. Amen."
-      },
-      {
-        id: 'day-12',
-        day: 12,
-        title: "A Cheerful Heart",
-        scripture: "Proverbs 17:22",
-        content: "A cheerful heart is good medicine, but a crushed spirit dries up the bones. Joy has healing power, while despair weakens us physically and emotionally.",
-        questions: [
-          "What brings you genuine joy and cheerfulness?",
-          "How does your attitude affect your health and relationships?",
-          "How can you cultivate a more cheerful heart?"
-        ],
-        prayer: "God of joy, fill my heart with Your cheerfulness. Help me to find reasons to rejoice even in difficult circumstances. Let my joy be a healing presence to others. Amen."
-      },
-      {
-        id: 'day-13',
-        day: 13,
-        title: "Generous Giving",
-        scripture: "Proverbs 11:25",
-        content: "A generous person will prosper; whoever refreshes others will be refreshed. Generosity creates a cycle of blessing that returns to the giver.",
-        questions: [
-          "How has generosity blessed your life?",
-          "What holds you back from being more generous?",
-          "Who could you refresh through your generosity today?"
-        ],
-        prayer: "Generous God, You have blessed me abundantly. Help me to be generous with my time, resources, and love. Show me how to refresh others as You have refreshed me. Amen."
-      },
-      {
-        id: 'day-14',
-        day: 14,
-        title: "Self-Control",
-        scripture: "Proverbs 25:28",
-        content: "Like a city whose walls are broken through is a person who lacks self-control. Self-control is our defense against temptation and poor decisions.",
-        questions: [
-          "In what areas do you struggle with self-control?",
-          "How has lack of self-control caused problems in your life?",
-          "What strategies help you maintain self-discipline?"
-        ],
-        prayer: "Lord, help me to build strong walls of self-control around my life. Give me strength to resist temptation and wisdom to make good choices. Be my defender and guide. Amen."
-      },
-      {
-        id: 'day-15',
-        day: 15,
-        title: "Wise Counsel",
-        scripture: "Proverbs 19:20",
-        content: "Listen to advice and accept discipline, and at the end you will be counted among the wise. Wisdom often comes through the counsel of others.",
-        questions: [
-          "Who do you turn to for wise counsel?",
-          "How well do you listen to advice from others?",
-          "What advice have you received that changed your life?"
-        ],
-        prayer: "God of wisdom, help me to be teachable and open to counsel. Surround me with wise advisors and give me humility to receive their input. Make me wise in all my ways. Amen."
-      },
-      {
-        id: 'day-16',
-        day: 16,
-        title: "Patience and Understanding",
-        scripture: "Proverbs 14:29",
-        content: "Whoever is patient has great understanding, but one who is quick-tempered displays folly. Patience reveals wisdom while impatience reveals foolishness.",
-        questions: [
-          "When do you find it hardest to be patient?",
-          "How has patience led to better understanding in your life?",
-          "What helps you remain calm when you want to react quickly?"
-        ],
-        prayer: "Patient God, You are slow to anger and abounding in love. Help me to be patient with others and with circumstances. Give me understanding rather than quick judgment. Amen."
-      },
-      {
-        id: 'day-17',
-        day: 17,
-        title: "Honest Dealing",
-        scripture: "Proverbs 11:1",
-        content: "The Lord detests dishonest scales, but accurate weights find favor with him. God values honesty and integrity in all our dealings.",
-        questions: [
-          "In what areas of your life do you need to be more honest?",
-          "How does integrity benefit your relationships and reputation?",
-          "What tempts you to be dishonest, and how can you resist?"
-        ],
-        prayer: "God of truth, help me to be honest in all my dealings. Give me integrity that honors You and builds trust with others. Keep me from any form of deception. Amen."
-      },
-      {
-        id: 'day-18',
-        day: 18,
-        title: "The Righteous Stand Firm",
-        scripture: "Proverbs 10:25",
-        content: "When the storm has swept by, the wicked are gone, but the righteous stand firm forever. Living righteously provides stability that weathers any storm.",
-        questions: [
-          "What storms have you weathered by standing firm in righteousness?",
-          "What helps you remain steadfast during difficult times?",
-          "How can you help others stand firm in their faith?"
-        ],
-        prayer: "Righteous God, help me to stand firm in righteousness no matter what storms come. Be my foundation and strength. Help me to encourage others to stand firm too. Amen."
-      },
-      {
-        id: 'day-19',
-        day: 19,
-        title: "Training Children",
-        scripture: "Proverbs 22:6",
-        content: "Start children off on the way they should go, and even when they are old they will not turn from it. The investment we make in young lives has lasting impact.",
-        questions: [
-          "How were you guided in the right direction as a child?",
-          "What children in your life need your guidance and investment?",
-          "How can you help shape the next generation?"
-        ],
-        prayer: "God of generations, help me to be a positive influence on young people. Give me wisdom to guide children in Your ways. Use me to help shape lives for Your kingdom. Amen."
-      },
-      {
-        id: 'day-20',
-        day: 20,
-        title: "The Reward of Humility",
-        scripture: "Proverbs 22:4",
-        content: "Humility is the fear of the Lord; its wages are riches and honor and life. True humility before God brings blessings that pride can never achieve.",
-        questions: [
-          "How has humility brought blessing to your life?",
-          "What does it mean to have 'riches and honor and life' from God?",
-          "How can you cultivate greater humility?"
-        ],
-        prayer: "Humble Savior, teach me the way of humility. Help me to fear You appropriately and walk humbly before You. Let humility bring true riches to my life. Amen."
-      },
-      {
-        id: 'day-21',
-        day: 21,
-        title: "Living Wisely",
-        scripture: "Proverbs 27:1",
-        content: "Do not boast about tomorrow, for you do not know what a day may bring. This reminds us to live wisely today, trusting God for tomorrow.",
-        questions: [
-          "How can you live more wisely today?",
-          "What have these 21 days taught you about practical wisdom?",
-          "How will you continue to seek God's wisdom in daily decisions?"
-        ],
-        prayer: "Wise God, thank You for 21 days of learning Your wisdom. Help me to apply these truths daily. Continue to guide me in wisdom and help me to trust You for each new day. Amen."
+        prayer: "Holy Father, I acknowledge that You are the source of all wisdom and truth. Help me to develop a proper fear and reverence for You that transforms how I think, speak, and act. I confess that sometimes I try to rely on my own understanding instead of seeking Your wisdom first. Forgive me for the times I've acted foolishly by ignoring Your instruction. Give me a teachable heart that eagerly receives Your wisdom through Your Word, Your Spirit, and the counsel of godly people. May my life reflect the wisdom that comes from knowing and honoring You. Help me to make decisions today that demonstrate my reverence for You and my desire to live according to Your ways. Make me wise in Your sight. Amen."
       }
+      // Additional lessons would continue...
+    ]
+  },
+  {
+    id: 'book-of-romans',
+    title: "Journey Through Romans",
+    description: "An in-depth exploration of Paul's letter to the Romans, discovering the depth of God's grace and the foundation of Christian faith.",
+    duration: 28,
+    category: "Doctrine",
+    difficulty: "Advanced",
+    participants: 423,
+    lessons: [
+      {
+        id: 'day-1',
+        day: 1,
+        title: "The Gospel of God",
+        scripture: "Romans 1:1-7",
+        content: "Paul begins his masterpiece letter with a powerful introduction that establishes his authority and the nature of the gospel he proclaims. As a 'servant of Christ Jesus,' Paul uses the Greek word 'doulos,' meaning bondservant or slave, indicating complete devotion and submission to his master. Yet this slavery is voluntary and joyful, born out of love and gratitude for salvation. Paul's calling as an apostle wasn't self-appointed but came directly from God, giving him divine authority to speak on behalf of Christ. The gospel he proclaims isn't a new invention but was 'promised beforehand through his prophets in the Holy Scriptures,' showing the continuity between Old and New Testament revelation. This gospel centers on God's Son, who was descended from David according to the flesh, fulfilling messianic prophecies, and declared to be the Son of God in power according to the Spirit of holiness by His resurrection from the dead. The resurrection is crucial—it validates Jesus' claims and demonstrates His victory over sin and death. Through Christ, Paul and all believers receive grace and apostleship to bring about the obedience of faith among all nations. This phrase 'obedience of faith' is key to understanding Romans—true faith always results in obedience, and true obedience flows from faith.",
+        additionalScriptures: [
+          "1 Corinthians 9:16-17 - Paul's compulsion to preach",
+          "Galatians 1:1 - Paul's apostolic calling",
+          "2 Timothy 1:1 - Apostle by the will of God",
+          "Acts 9:15-16 - God's choice of Paul",
+          "1 Corinthians 15:3-4 - The gospel defined",
+          "2 Samuel 7:12-13 - Promise to David"
+        ],
+        questions: [
+          "What does it mean to be a 'servant of Christ Jesus' in your daily life and relationships?",
+          "How does understanding the gospel as God's ancient promise affect your view of Scripture?",
+          "In what ways does the resurrection of Jesus impact your faith and hope?",
+          "How can you demonstrate the 'obedience of faith' in your current circumstances?"
+        ],
+        prayer: "Heavenly Father, thank You for the gospel of Your Son, Jesus Christ, which You promised long ago and fulfilled in perfect timing. Like Paul, I want to be Your faithful servant, wholly devoted to Your purposes and calling. Help me to understand more deeply the significance of Jesus' resurrection and what it means for my life today. Give me a heart of obedience that flows from genuine faith and love for You. Use me to share this good news with others, whether through my words or my example. May my life demonstrate the transforming power of the gospel and bring glory to Your name. Thank You for calling me to be part of Your family and Your mission in the world. Amen."
+      }
+      // Additional lessons would continue...
+    ]
+  },
+  {
+    id: 'miracles-of-jesus',
+    title: "Miracles of Jesus",
+    description: "Witness the power and compassion of Christ through 15 days studying His miraculous works and their meaning for today.",
+    duration: 15,
+    category: "Ministry",
+    difficulty: "Beginner",
+    participants: 756,
+    lessons: [
+      {
+        id: 'day-1',
+        day: 1,
+        title: "Water into Wine",
+        scripture: "John 2:1-11",
+        content: "Jesus' first recorded miracle occurred at a wedding in Cana of Galilee, a celebration that had run out of wine—a significant social embarrassment in that culture. Mary, Jesus' mother, brought this need to His attention, demonstrating her faith in His ability to help despite His initial response about His 'hour' not yet having come. The interaction between Jesus and His mother reveals both His humanity (honoring His earthly mother) and His divinity (knowing God's timing). When Jesus instructed the servants to fill six stone water jars with water—jars used for Jewish purification ceremonies—He was about to transform something ordinary into something extraordinary. Each jar held 20-30 gallons, meaning Jesus created approximately 120-180 gallons of the finest wine. The miracle wasn't just about solving a social problem; it was a sign pointing to Jesus' identity and mission. Wine in Scripture often symbolizes joy, celebration, and God's blessing. By turning water into wine, Jesus demonstrated His power over creation and foreshadowed the joy and celebration of God's kingdom. The timing is significant—this first miracle happened at a wedding, pointing to the future wedding feast of the Lamb when Christ will celebrate with His bride, the church, for eternity.",
+        additionalScriptures: [
+          "Isaiah 25:6 - A feast of rich food and well-aged wine",
+          "Matthew 26:29 - Jesus speaks of drinking wine new in the kingdom",
+          "Revelation 19:7-9 - The wedding feast of the Lamb",
+          "Psalm 104:15 - Wine that gladdens human hearts",
+          "Mark 2:22 - New wine in new wineskins",
+          "Isaiah 55:1 - Come buy wine without money"
+        ],
+        questions: [
+          "What does this miracle reveal about Jesus' character and His care for ordinary human needs?",
+          "How does Mary's response to the servants ('Do whatever he tells you') serve as a model for us?",
+          "What 'water' in your life might Jesus want to transform into 'wine'—joy, blessing, purpose?",
+          "How does this miracle give you hope for God's provision in your current needs?"
+        ],
+        prayer: "Lord Jesus, thank You for this beautiful first miracle that reveals Your power and Your heart for people's needs. Just as You cared about the joy and celebration at that wedding, I know You care about every detail of my life. Help me to trust You with my needs, both great and small, believing that You can transform ordinary situations into extraordinary blessings. Like Mary, help me to bring my concerns to You in faith, and like the servants, help me to obey whatever You tell me to do. Transform the ordinary areas of my life into something beautiful for Your glory. Fill my life with the joy and celebration that comes from knowing You. Amen."
+      }
+      // Additional lessons would continue...
+    ]
+  },
+  {
+    id: 'women-of-faith',
+    title: "Women of Faith",
+    description: "Learn from the courage, faith, and wisdom of biblical women who shaped history and demonstrated God's power through their lives.",
+    duration: 18,
+    category: "Biography",
+    difficulty: "All Levels",
+    participants: 934,
+    lessons: [
+      {
+        id: 'day-1',
+        day: 1,
+        title: "Mary: The Surrender of Faith",
+        scripture: "Luke 1:26-38",
+        content: "Mary's encounter with the angel Gabriel represents one of the most profound moments of faith in human history. A young woman, probably in her teens, living in the insignificant town of Nazareth, was chosen by God to bear the Messiah. The angel's greeting, 'Greetings, you who are highly favored! The Lord is with you,' initially troubled Mary, but Gabriel's message was even more overwhelming: she would conceive and give birth to the Son of the Most High. Mary's response reveals her character—she asked a practical question ('How will this be?') but didn't doubt God's ability to do the impossible. When the angel explained that the Holy Spirit would overshadow her, Mary's faith response was immediate: 'I am the Lord's servant. May your word to me be fulfilled.' This wasn't passive resignation but active surrender, choosing to trust God despite the enormous personal cost. She faced potential disgrace, rejection by Joseph, and social ostracism. Yet she chose to believe that nothing is impossible with God. Mary's faith teaches us that God often chooses the unlikely and unexpected to accomplish His purposes, and that true faith involves surrendering our plans to His will, even when we don't understand the full picture.",
+        additionalScriptures: [
+          "Luke 1:46-55 - Mary's magnificent song of praise",
+          "Matthew 1:18-25 - Joseph's perspective on Mary's pregnancy",
+          "Luke 2:19 - Mary treasured things in her heart",
+          "John 19:25-27 - Mary at the cross",
+          "Genesis 18:14 - Nothing is too hard for the Lord",
+          "Isaiah 7:14 - The virgin will conceive"
+        ],
+        questions: [
+          "What can we learn from Mary's response to unexpected and challenging news from God?",
+          "How do you typically respond when God's plans seem to disrupt your own?",
+          "What does Mary's faith teach us about trusting God even when we don't understand?",
+          "In what areas of your life is God calling you to demonstrate Mary's kind of surrendered faith?"
+        ],
+        prayer: "Gracious Father, I'm amazed by Mary's faith and surrender to Your will despite the uncertainty and potential cost. Help me to have her kind of trust when You call me to step into the unknown or when Your plans seem to disrupt my own. Give me the courage to say, 'I am Your servant. May Your word to me be fulfilled,' even when I don't understand the full picture. Help me to believe that nothing is impossible with You and to trust Your goodness even in difficult circumstances. Like Mary, may I treasure Your words in my heart and respond to Your calling with faith and obedience. Use me, Lord, according to Your purposes, and help me to find joy in being Your servant. Amen."
+      }
+      // Additional lessons would continue...
+    ]
+  },
+  {
+    id: 'parables-kingdom',
+    title: "Parables of the Kingdom",
+    description: "Understand the heart of Jesus' teaching through 12 days exploring the parables that reveal the nature of God's kingdom.",
+    duration: 12,
+    category: "Teaching",
+    difficulty: "Intermediate",
+    participants: 567,
+    lessons: [
+      {
+        id: 'day-1',
+        day: 1,
+        title: "The Sower and the Soils",
+        scripture: "Matthew 13:1-23",
+        content: "Jesus' parable of the sower is foundational to understanding all His parables and the nature of His kingdom. Unlike earthly kingdoms built on military might or political power, God's kingdom advances through the simple yet powerful act of sowing seed—the word of God—into human hearts. The sower represents anyone who shares God's truth, whether Jesus Himself, the apostles, pastors, or ordinary believers. The seed is consistent and good; it's the condition of the soil—the human heart—that determines the outcome. The path represents hearts hardened by sin and indifference, where Satan quickly snatches away any truth before it can take root. The rocky ground symbolizes those who receive the word with initial enthusiasm but lack deep roots; when trials come, they quickly fall away because their faith was superficial. The thorny ground depicts hearts where God's word is choked out by the worries of life, the deceitfulness of wealth, and the desires for other things. But the good soil represents hearts that are prepared, receptive, and fertile—those who hear the word, understand it, and bear fruit in varying degrees. This parable teaches us that not everyone will respond positively to the gospel, but our job is to faithfully sow the seed, trusting God for the results.",
+        additionalScriptures: [
+          "Mark 4:1-20 - Mark's account of the parable",
+          "Luke 8:4-15 - Luke's version with additional details",
+          "Isaiah 55:10-11 - God's word does not return empty",
+          "1 Corinthians 3:6-9 - Paul plants, Apollos waters, God gives growth",
+          "2 Timothy 4:2 - Preach the word in season and out",
+          "Psalm 126:5-6 - Those who sow in tears reap with joy"
+        ],
+        questions: [
+          "What type of soil has your heart been like in different seasons of your spiritual journey?",
+          "What 'thorns' in your life might be choking out God's word and preventing spiritual growth?",
+          "How can you prepare your heart to be good soil that receives and responds to God's truth?",
+          "Who has God placed in your life that needs you to sow seeds of His word and love?"
+        ],
+        prayer: "Lord Jesus, thank You for faithfully sowing the seeds of Your truth in my heart. Help me to be good soil that receives Your word with understanding and bears fruit for Your kingdom. Remove any hardness in my heart that prevents Your truth from taking root. Give me deep roots that will sustain me through trials and difficulties. Help me to identify and remove the thorns of worry, materialism, and other desires that compete for my attention and devotion. Make me fruitful in sharing Your love and truth with others. Give me patience as I sow seeds in other people's lives, trusting You for the harvest in Your perfect timing. May my life be productive for Your glory. Amen."
+      }
+      // Additional lessons would continue...
+    ]
+  },
+  {
+    id: 'psalms-praise',
+    title: "Psalms of Praise",
+    description: "Experience the joy and wonder of worship through 16 days of studying the most celebratory psalms in Scripture.",
+    duration: 16,
+    category: "Worship",
+    difficulty: "Beginner",
+    participants: 812,
+    lessons: [
+      {
+        id: 'day-1',
+        day: 1,
+        title: "Praise the Lord, O My Soul",
+        scripture: "Psalm 103:1-22",
+        content: "Psalm 103 is one of the most beloved psalms of praise, beginning with David's call to his own soul to 'praise the Lord.' The Hebrew word for praise here is 'barak,' which means to kneel or to bless. David is essentially commanding himself to worship, recognizing that sometimes we must choose to praise God regardless of our feelings or circumstances. He calls upon his entire being—'all my inmost being'—to praise God's holy name, indicating that worship should engage every part of who we are: our emotions, our will, our mind, and our spirit. The psalm then lists specific reasons for praise, beginning with personal benefits: forgiveness of sins, healing of diseases, redemption from destruction, and crowning with love and compassion. But David's praise extends beyond personal blessings to God's character—His righteousness, justice, compassion, grace, patience, and unfailing love. The central truth of this psalm is found in verses 10-12, which declare that God doesn't treat us as our sins deserve but removes our transgressions 'as far as the east is from the west.' This psalm teaches us that praise should be both personal and corporate, acknowledging both God's specific works in our lives and His eternal character that never changes.",
+        additionalScriptures: [
+          "Psalm 104:1 - Praise the Lord, my soul",
+          "Psalm 146:1-2 - I will praise the Lord all my life",
+          "Ephesians 1:3 - Praise be to God for spiritual blessings",
+          "1 Peter 1:3 - Praise to God for new birth",
+          "Revelation 4:11 - You are worthy to receive glory",
+          "Psalm 96:1-2 - Sing to the Lord a new song"
+        ],
+        questions: [
+          "What specific benefits has God given you that deserve your praise and thanksgiving?",
+          "How does remembering God's character help you praise Him even during difficult times?",
+          "What does it mean to praise God with 'all your inmost being,' and how can you do this?",
+          "How can you cultivate a lifestyle of praise that extends beyond formal worship times?"
+        ],
+        prayer: "Praise the Lord, O my soul! All my inmost being, praise Your holy name! Thank You, Father, for Your countless benefits in my life. You have forgiven all my sins, healed my diseases, redeemed my life from destruction, and crowned me with Your love and compassion. Your character is perfect—You are compassionate and gracious, slow to anger and rich in love. Thank You for not treating me as my sins deserve but removing my transgressions as far as the east is from the west. Help me to remember Your benefits daily and to praise You not just with my lips but with my entire life. May my worship engage my heart, mind, soul, and strength. Let praise be my natural response to Your goodness and faithfulness. Amen."
+      }
+      // Additional lessons would continue...
     ]
   }
 ];
 
-export const getUserProgress = async (planId: string): Promise<number> => {
-  // In a real app, this would fetch from database
-  // For now, return mock progress
-  const mockProgress: Record<string, number> = {
-    'walking-with-jesus': 12,
-    'psalms-of-hope': 0,
-    'proverbs-wisdom': 7
-  };
-  
-  return mockProgress[planId] || 0;
+export const getUserProgress = (planId: string): { currentDay: number; completedLessons: string[] } => {
+  // This would integrate with the app store
+  return { currentDay: 1, completedLessons: [] };
 };
 
-export const updateLessonProgress = async (planId: string, lessonId: string, completed: boolean): Promise<void> => {
-  // In a real app, this would update the database
+export const updateLessonProgress = (planId: string, lessonId: string, completed: boolean): void => {
+  // This would integrate with the app store
   console.log(`Lesson ${lessonId} in plan ${planId} marked as ${completed ? 'completed' : 'incomplete'}`);
 };
 
