@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { TestNotifications } from '@/components/admin/TestNotifications';
 import { 
   Shield,
   Users,
@@ -350,48 +351,9 @@ export const AdminPage = () => {
         </TabsContent>
 
         <TabsContent value="broadcast" className="space-y-4">
-          <h2 className="text-xl font-semibold text-foreground">Broadcast Messages</h2>
+          <h2 className="text-xl font-semibold text-foreground">Push Notifications & Broadcasts</h2>
           
-          <Card className="shadow-card">
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center gap-2">
-                <Bell className="h-5 w-5 text-primary" />
-                Send Notification
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Target Audience</label>
-                <select 
-                  className="w-full p-2 border rounded-lg"
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                >
-                  <option value="all">All Users</option>
-                  <option value="active">Active Users Only</option>
-                  <option value="youth">Youth Ministry</option>
-                  <option value="married">Marriage Ministry</option>
-                </select>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Message</label>
-                <Textarea
-                  placeholder="Enter your broadcast message..."
-                  value={broadcastMessage}
-                  onChange={(e) => setBroadcastMessage(e.target.value)}
-                  rows={4}
-                />
-              </div>
-              <Button 
-                onClick={handleSendBroadcast}
-                className="w-full"
-                disabled={!broadcastMessage.trim()}
-              >
-                <Send className="h-4 w-4 mr-2" />
-                Send Broadcast
-              </Button>
-            </CardContent>
-          </Card>
+          <TestNotifications />
         </TabsContent>
 
         <TabsContent value="settings" className="space-y-4">

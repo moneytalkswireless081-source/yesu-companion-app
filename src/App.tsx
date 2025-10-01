@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { BottomNav } from "@/components/ui/bottom-nav";
 import { useAppStore } from "@/stores/useAppStore";
 import { useTheme } from "@/hooks/useTheme";
+import { usePushNotifications } from "@/hooks/usePushNotifications";
 import { DailyPage } from "@/pages/DailyPage";
 import { StudyPage } from "@/pages/StudyPage";
 import { CommunityPage } from "@/pages/CommunityPage";
@@ -24,6 +25,9 @@ const MainApp = () => {
   
   // Initialize theme system
   useTheme();
+  
+  // Initialize push notifications
+  usePushNotifications();
 
   const renderPage = () => {
     switch (activeTab) {
